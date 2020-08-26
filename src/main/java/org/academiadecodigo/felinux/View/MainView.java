@@ -9,13 +9,10 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class MainView {
-
     public MainView(){
         startGame();
     }
-
     public void startGame(){
-
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         final Background background = new Background();
         final Dorothy dorothy = new Dorothy();

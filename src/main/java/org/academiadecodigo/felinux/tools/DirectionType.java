@@ -2,11 +2,11 @@ package org.academiadecodigo.felinux.tools;
 
 public enum DirectionType {
 
-    UP(new String[]{"/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png"}),
-    DOWN(new String[]{"/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png"}),
-    LEFT(new String[]{"/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png"}),
-    RIGHT(new String[]{"/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png"}),
-    IDLE(new String[]{"/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png"});
+    UP(new String[]{"/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png"}),
+    DOWN(new String[]{"/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png"}),
+    LEFT(new String[]{"/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png"}),
+    RIGHT(new String[]{"/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png"}),
+    IDLE(new String[]{"/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png"});
 
     private String[] images;
 
