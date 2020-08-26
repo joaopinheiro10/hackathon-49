@@ -19,7 +19,7 @@ public class Dorothy extends AbstractModel {
         this.prevDirection = DirectionType.DOWN;
         direction = DirectionType.DOWN;
         alive = true;
-        image = new Picture(50,50, "/sprites/girl/DEAD_LEFT_1.png");
+        image = new Picture(50,50, "img/chars/girl/DEAD_LEFT_1.png");
     }
 
     public int getHighnessLevel() {
@@ -63,33 +63,38 @@ public class Dorothy extends AbstractModel {
                 super.image.getX(),super.image.getY()
         };
 
-        //TODO get idle to animate
         if(idle || talking){
             super.image.delete();
-            this.image = new Picture(position[0],position[1],"/img/chars/girl/IDLE_BACK_MexerNoCabelo1.png");
+            this.image = new Picture(position[0],position[1],genIdleImage(direction));
             image.draw();
             return;
         }
 
-        //3 é o array de images, e caso, mude a direction
+        // 3 é o array de images, e caso, mude a direction
+        // TODO aumentar pixeis
         if(moveCounter >= 3 || prevDirection != super.direction){
-            System.out.println("test");
             moveCounter = 0;
         } else {
             moveCounter++;
         }
 
-        super.image.delete();
+        Picture imageToDelete = super.image;
         super.image = new Picture(position[0]+dx,position[1]+dy,super.direction.getImage(moveCounter));
         super.image.draw();
+        imageToDelete.delete();
+
         prevDirection = direction;
-        System.out.println(dx +" "+" " +dy);
     }
 
     /**
      * Interacts with random objects
      */
     public void interact() {}
+
+    private String genIdleImage(DirectionType cdirection){
+
+        return "/img/chars/girl/IDLE_"+ cdirection +"_MexerNoCabelo1.png";
+    }
 
     public int getMoveCounter() {
         return moveCounter;

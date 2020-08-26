@@ -30,12 +30,14 @@ public class MainView {
             new Runnable() {
                 @Override
                 public void run() {
+
                     while (true) {
 
                         if (dorothy.getHighnessLevel() > 75) {
                         } else {
                             background.setHighEffect();
                         }
+
                         map.getImage().draw();
                         //TODO joel
                         dorothy.move();

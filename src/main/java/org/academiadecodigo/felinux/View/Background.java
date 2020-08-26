@@ -18,38 +18,35 @@ public class Background  {
     //Done
     public void setHighEffect() {
 
-        System.out.println("redesenhar");
-            if(red >= 200){
-                red = 30;
-            }
-            if(green >= 200){
-                green = 150;
-            }
-            if(blue >= 200){
-                blue = 50;
-            }
-            red++;
-            green += 10;
-            blue += 10;
-            this.rectangle.setColor(new Color(red, green, blue));
-            this.rectangle.fill();
+        if(red >= 200){
+            red = 30;
+        }
+        if(green >= 200){
+            green = 150;
+        }
+        if(blue >= 200){
+            blue = 50;
+        }
+        red++;
+        green += 10;
+        blue += 10;
+        this.rectangle.setColor(new Color(red, green, blue));
+        this.rectangle.fill();
 
     }
 
     public void setDepressedEffect() {
 
-            if(red >= 200){
-                red = 50;
-            }
-            if(green >= 200){
-                green = 50;
-            }
-            if(blue >= 200){
-                blue = 50;
-            }
-                        this.rectangle.setColor(new Color(red, green, blue));
-                        this.rectangle.fill();
-
+        if(red >= 200){
+            red = 50;
+        }
+        if(green >= 200){
+            green = 50;
+        }
+        if(blue >= 200){
+            blue = 50;
+        }
+        this.rectangle.setColor(new Color(red, green, blue));
+        this.rectangle.fill();
     }
-
 }

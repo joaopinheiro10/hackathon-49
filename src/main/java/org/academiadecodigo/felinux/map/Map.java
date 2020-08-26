@@ -9,9 +9,8 @@ public class Map extends GameObject {
     private MapType currentMap;
 
     public Map() {
-        currentMap = ROOM;
-        image = new Picture(50,50, currentMap.name());
-        image.draw();
+        currentMap = ATRIUM;
+        image = new Picture(50,50, currentMap.getSource());
     }
 
 
@@ -21,5 +20,14 @@ public class Map extends GameObject {
 
     public void setCurrentMap(MapType currentMap) {
         this.currentMap = currentMap;
+    }
+
+    public void draw() {
+        if(currentMap == ROOM) {
+            return;
+        }
+
+        image.draw();
+        currentMap = ROOM;
     }
 }
