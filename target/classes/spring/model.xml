@@ -9,11 +9,13 @@
         <property name="dy" value="0"/>
         <property name="highnessLevel" value="50"/>
         <property name="talking" value="false"/>
-        <property name="image" value="resources/image"/>
+        <property name="image" ref="Picture"/>
+        <property name="direction" value="DOWN"/>
+        <property name="moveCounter" value="0"/>
     </bean>
 
     <bean id="husband" class="org.academiadecodigo.felinux.GameObjects.model.Husband">
-        <property name="image" value="resources/img"/>
+        <property name="image" value = "resources/sprites"/>
         <property name="talking" value="false"/>
     </bean>
 
@@ -25,5 +27,12 @@
     <bean id="npc" class="org.academiadecodigo.felinux.GameObjects.model.NPC">
         <property name="image" value="resources/img"/>
     </bean>
+
+    <bean id="Picture" class="org.academiadecodigo.simplegraphics.pictures.Picture">
+        <constructor-arg name="x" value="50"/>
+        <constructor-arg name="y" value="50"/>
+        <constructor-arg name="source" value="/girl/DEAD_LEFT_1.png"/>
+    </bean>
+
 
 </beans>

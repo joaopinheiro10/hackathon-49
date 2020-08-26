@@ -16,5 +16,6 @@ public abstract class GameObject {
 
     public void setImage(Picture image) {
         this.image = image;
+        image.draw();
     }
 }

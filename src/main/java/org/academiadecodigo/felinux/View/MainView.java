@@ -1,4 +1,11 @@
 package org.academiadecodigo.felinux.View;
-//Instantiate all the Pictures in a while TRUE("Yes") loop
+
 public class MainView {
+    public MainView(){
+        startGame();
+    }
+    public void startGame(){
+        Background background = new Background();
+
+    }
 }

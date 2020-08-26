@@ -2,13 +2,46 @@ package org.academiadecodigo.felinux.View;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.springframework.beans.factory.annotation.Autowired;
 
-public class Background implements Runnable{
+public class Background{
 
     private Rectangle rectangle = new Rectangle(5,5,1000,600);
     private int red = 0;
     private int green = 0;
     private int blue = 0;
+
+    public Rectangle getRectangle() {
+        return rectangle;
+    }
+
+    public void setRectangle(Rectangle rectangle) {
+        this.rectangle = rectangle;
+    }
+
+    public int getRed() {
+        return red;
+    }
+
+    public void setRed(int red) {
+        this.red = red;
+    }
+
+    public int getGreen() {
+        return green;
+    }
+
+    public void setGreen(int green) {
+        this.green = green;
+    }
+
+    public int getBlue() {
+        return blue;
+    }
+
+    public void setBlue(int blue) {
+        this.blue = blue;
+    }
 
     //Done
     public void setHighEffect() {
@@ -63,9 +96,4 @@ public class Background implements Runnable{
         }
     }
 
-    @Override
-    public void run() {
-        setHighEffect();
-        //setDepressedEffect();
-    }
 }

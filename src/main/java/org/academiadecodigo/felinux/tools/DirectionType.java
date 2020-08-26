@@ -2,10 +2,11 @@ package org.academiadecodigo.felinux.tools;
 
 public enum DirectionType {
 
-    UP(new String[]{"sad", "asd"}),
-    DOWN(new String[]{"sad", "asd"}),
-    LEFT(new String[]{"sad", "asd"}),
-    RIGHT(new String[]{"sad", "asd"});
+    UP(new String[]{"/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png"}),
+    DOWN(new String[]{"/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png"}),
+    LEFT(new String[]{"/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png"}),
+    RIGHT(new String[]{"/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png"}),
+    IDLE(new String[]{"/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png", "/sprites/girl/WALK_FRONT_4.png"});
 
     private String[] images;
 
