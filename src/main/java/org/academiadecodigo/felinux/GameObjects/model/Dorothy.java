@@ -14,6 +14,14 @@ public class Dorothy extends AbstractModel {
     private boolean idle;
     private DirectionType prevDirection;
 
+    public DirectionType getPrevDirection() {
+        return prevDirection;
+    }
+
+    public void setPrevDirection(DirectionType prevDirection) {
+        this.prevDirection = prevDirection;
+    }
+
     public Dorothy() {
     }
 
@@ -54,29 +62,26 @@ public class Dorothy extends AbstractModel {
      */
     public void move(){
 
-        if(idle){
-
+        //TODO get idle to animate
+        if(talking || idle){
             return;
         }
 
-        if(!talking){
-
-            return;
-        }
-
-        int[] direction = {super.image.getX(),super.image.getY()};
+        int[] position = {
+                super.image.getX(),super.image.getY()
+        };
 
         //3 é o array de images, e caso, mude a direction
-        if(moveCounter>=3||prevDirection!=super.direction){
-
-            moveCounter=0;
-        }else{
+        if(moveCounter >= 3 || prevDirection != super.direction){
+            moveCounter = 0;
+        } else {
             moveCounter++;
         }
 
         super.image.delete();
-        super.image = new Picture(direction[0],direction[1],super.direction.getImage(moveCounter));
+        super.image = new Picture(position[0], position[1], super.direction.getImage(moveCounter));
         super.image.draw();
+        prevDirection = direction;
     }
 
     /**
