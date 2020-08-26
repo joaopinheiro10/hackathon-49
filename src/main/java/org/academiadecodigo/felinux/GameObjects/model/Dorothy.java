@@ -9,8 +9,7 @@ public class Dorothy extends AbstractModel {
     private int highnessLevel;
     private boolean alive;
 
-    public Dorothy(Picture image) {
-        super(image);
+    public Dorothy() {
     }
 
     public int getHighnessLevel() {

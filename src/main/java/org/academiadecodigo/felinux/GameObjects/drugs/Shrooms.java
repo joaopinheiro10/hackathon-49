@@ -5,7 +5,6 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Shrooms extends GameObject {
 
-    public Shrooms(Picture image) {
-        super(image);
+    public Shrooms() {
     }
 }

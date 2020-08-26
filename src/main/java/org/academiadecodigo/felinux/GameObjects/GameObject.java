@@ -7,9 +7,14 @@ public abstract class GameObject {
 
     protected Picture image;
 
-    public GameObject(Picture image) {
-        this.image = image;
+    public GameObject() {
     }
 
+    public Picture getImage() {
+        return image;
+    }
 
+    public void setImage(Picture image) {
+        this.image = image;
+    }
 }

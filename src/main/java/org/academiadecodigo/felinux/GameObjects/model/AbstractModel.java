@@ -10,8 +10,7 @@ public abstract class AbstractModel extends GameObject {
     protected boolean talking;
 
 
-    public AbstractModel(Picture image) {
-        super(image);
+    public AbstractModel() {
     }
 
     public boolean isTalking() {

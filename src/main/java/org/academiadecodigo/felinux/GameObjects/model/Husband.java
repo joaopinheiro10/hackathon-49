@@ -5,7 +5,6 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Husband extends AbstractModel {
 
 
-    public Husband(Picture image) {
-        super(image);
+    public Husband() {
     }
 }

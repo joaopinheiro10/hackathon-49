@@ -6,7 +6,6 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class NPC extends GameObject {
 
 
-    public NPC(Picture image) {
-        super(image);
+    public NPC() {
     }
 }
