@@ -1,4 +1,4 @@
-package org.academiadecodigo.felinux.controller;
+package org.academiadecodigo.felinux;
 
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
 
