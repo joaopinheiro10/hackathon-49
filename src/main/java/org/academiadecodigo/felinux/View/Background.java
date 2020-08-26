@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class Background  {
 
-    private Rectangle rectangle = new Rectangle(5,5,1000,600);
+    private Rectangle rectangle = new Rectangle(5,5,800,600);
     private static int red = 0;
     private static int green = 0;
     private static int blue = 0;

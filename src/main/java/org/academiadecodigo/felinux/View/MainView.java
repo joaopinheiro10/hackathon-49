@@ -17,6 +17,9 @@ public class MainView {
         final Dorothy dorothy = new Dorothy();
         PlayerKeyboard keyboard = new PlayerKeyboard(dorothy);
 
+        //TODO criar classe for purgatory
+        final Picture purgatory = new Picture(100, 50, "/img/mansion/purgatory/purgatory.png");
+
         /**
          * Game Loop
          */
@@ -29,9 +32,10 @@ public class MainView {
                     } else {
                         background.setHighEffect();
                     }
-                    dorothy.setImage(new Picture(50,50, "/img/chars/girl/DEAD_LEFT_1.png"));
+                    purgatory.draw();
+                    /*dorothy.setImage(new Picture(50,50, "/img/chars/girl/DEAD_LEFT_1.png"));
                     //TODO joel
-                    dorothy.move();
+                    dorothy.move();*/
                 }
             }
         });

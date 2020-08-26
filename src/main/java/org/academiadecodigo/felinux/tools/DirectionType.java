@@ -2,7 +2,7 @@ package org.academiadecodigo.felinux.tools;
 
 public enum DirectionType {
 
-    UP(new String[]{"/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png"}),
+    UP(new String[]{"img/mansion/purgatory/image4532.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png"}),
     DOWN(new String[]{"/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png"}),
     LEFT(new String[]{"/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png"}),
     RIGHT(new String[]{"/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png", "/img/chars/girl/WALK_FRONT_4.png"}),
