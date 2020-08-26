@@ -64,7 +64,7 @@ public class Dorothy extends AbstractModel {
             return;
         }
 
-        int[] direction = {super.image.getX(),super.image.getY()};
+        int[] position = {super.image.getX(),super.image.getY()};
 
         //3 é o array de images, e caso, mude a direction
         if(moveCounter>=3||prevDirection!=super.direction){
@@ -75,8 +75,9 @@ public class Dorothy extends AbstractModel {
         }
 
         super.image.delete();
-        super.image = new Picture(direction[0],direction[1],super.direction.getImage(moveCounter));
+        super.image = new Picture(position[0]+dx,position[1]+dy,super.direction.getImage(moveCounter));
         super.image.draw();
+        prevDirection = super.direction;
     }
 
     /**
