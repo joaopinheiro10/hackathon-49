@@ -4,6 +4,8 @@ import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
+
+import static org.academiadecodigo.felinux.tools.DirectionType.*;
 /**
  * Keyboard Handler for Player Ingame
  */
@@ -134,18 +136,26 @@ public class PlayerKeyboard implements KeyboardHandler {
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_A||keyboardEvent.getKey() == KeyboardEvent.KEY_LEFT){
             player.setDx(player.getDx()-moveSpeed);;
+            player.setDirection(LEFT);
+            player.setIdle(false);
         }
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_D||keyboardEvent.getKey() == KeyboardEvent.KEY_RIGHT){
             player.setDx(player.getDx()+moveSpeed);;
+            player.setDirection(RIGHT);
+            player.setIdle(false);
         }
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_W||keyboardEvent.getKey() == KeyboardEvent.KEY_UP){
             player.setDy(player.getDy()-moveSpeed);;
+            player.setDirection(UP);
+            player.setIdle(false);
         }
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_S||keyboardEvent.getKey() == KeyboardEvent.KEY_DOWN){
             player.setDy(player.getDy()+moveSpeed);;
+            player.setDirection(DOWN);
+            player.setIdle(false);
         }
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_E){
@@ -161,15 +171,19 @@ public class PlayerKeyboard implements KeyboardHandler {
     public void keyReleased(KeyboardEvent keyboardEvent) {
         if((keyboardEvent.getKey() == KeyboardEvent.KEY_A)||(keyboardEvent.getKey() == KeyboardEvent.KEY_LEFT)){
             player.setDx(0f);
+            player.setIdle(true);
         }
         if((keyboardEvent.getKey() == KeyboardEvent.KEY_D)||(keyboardEvent.getKey() == KeyboardEvent.KEY_RIGHT)){
             player.setDx(0f);
+            player.setIdle(true);
         }
         if((keyboardEvent.getKey() == KeyboardEvent.KEY_W)||(keyboardEvent.getKey() == KeyboardEvent.KEY_UP)){
             player.setDy(0f);
+            player.setIdle(true);
         }
         if((keyboardEvent.getKey() == KeyboardEvent.KEY_S)||(keyboardEvent.getKey() == KeyboardEvent.KEY_DOWN)){
             player.setDy(0f);
+            player.setIdle(true);
         }
     }
 

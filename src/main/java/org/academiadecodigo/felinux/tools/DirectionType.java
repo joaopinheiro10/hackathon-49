@@ -12,4 +12,8 @@ public enum DirectionType {
     DirectionType(String[] images) {
         this.images = images;
     }
+
+    public String getImage(int position){
+        return this.images[position];
+    }
 }

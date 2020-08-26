@@ -1,6 +1,8 @@
 package org.academiadecodigo.felinux.GameObjects.model;
 
+import org.academiadecodigo.felinux.tools.DirectionType;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
+import org.springframework.core.SpringVersion;
 
 public class Dorothy extends AbstractModel {
 
@@ -8,6 +10,9 @@ public class Dorothy extends AbstractModel {
     private float dy;
     private int highnessLevel;
     private boolean alive;
+    private int moveCounter;
+    private boolean idle;
+    private DirectionType prevDirection;
 
     public Dorothy() {
     }
@@ -47,10 +52,51 @@ public class Dorothy extends AbstractModel {
     /**
      * Moves player
      */
-    public void move(){}
+    public void move(){
+
+        if(idle){
+
+            return;
+        }
+
+        if(!talking){
+
+            return;
+        }
+
+        int[] direction = {super.image.getX(),super.image.getY()};
+
+        //3 é o array de images, e caso, mude a direction
+        if(moveCounter>=3||prevDirection!=super.direction){
+
+            moveCounter=0;
+        }else{
+            moveCounter++;
+        }
+
+        super.image.delete();
+        super.image = new Picture(direction[0],direction[1],super.direction.getImage(moveCounter));
+        super.image.draw();
+    }
 
     /**
      * Interacts with random objects
      */
     public void interact() {}
+
+    public int getMoveCounter() {
+        return moveCounter;
+    }
+
+    public void setMoveCounter(int moveCounter) {
+        this.moveCounter = moveCounter;
+    }
+
+    public boolean isIdle() {
+        return idle;
+    }
+
+    public void setIdle(boolean status) {
+        this.idle = status;
+    }
 }
