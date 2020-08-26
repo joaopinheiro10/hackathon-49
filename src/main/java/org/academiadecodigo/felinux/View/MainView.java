@@ -4,7 +4,6 @@ import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
 import org.academiadecodigo.felinux.controller.PlayerKeyboard;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -30,7 +29,7 @@ public class MainView {
                     } else {
                         background.setHighEffect();
                     }
-                    dorothy.setImage(new Picture(50,50, "/sprites/girl/DEAD_LEFT_1.png"));
+                    dorothy.setImage(new Picture(50,50, "/img/chars/girl/DEAD_LEFT_1.png"));
                     //TODO joel
                     dorothy.move();
                 }
