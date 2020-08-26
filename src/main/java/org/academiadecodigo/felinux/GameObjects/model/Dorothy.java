@@ -18,15 +18,24 @@ public class Dorothy extends AbstractModel {
     public Dorothy() {
         this.prevDirection = DirectionType.DOWN;
         direction = DirectionType.DOWN;
+        alive = true;
+        image = new Picture(50,50, "/sprites/girl/DEAD_LEFT_1.png");
     }
 
     public int getHighnessLevel() {
         return highnessLevel;
     }
 
+    public void setHighnessLevel(int highnessLevel) {
+        this.highnessLevel = highnessLevel;
+    }
 
     public boolean isAlive() {
         return alive;
+    }
+
+    public void setAlive(boolean alive) {
+        this.alive = alive;
     }
 
     public float getDx() {
@@ -50,26 +59,30 @@ public class Dorothy extends AbstractModel {
      */
     public void move(){
 
-        //TODO get idle to animate
-        if(talking || idle){
-            return;
-        }
-
         int[] position = {
                 super.image.getX(),super.image.getY()
         };
-        System.out.println("adeus " + super.direction.getImage(moveCounter));
 
-        //3 é o array de images, e caso, mude a direction
+        if(idle || talking){
+            super.image.delete();
+            this.image = new Picture(position[0],position[1],genIdleImage(direction));
+            image.draw();
+            return;
+        }
+
+        // 3 é o array de images, e caso, mude a direction
+        // TODO aumentar pixeis
         if(moveCounter >= 3 || prevDirection != super.direction){
             moveCounter = 0;
         } else {
             moveCounter++;
         }
 
-        super.image.delete();
-        super.image = new Picture(position[0], position[1], super.direction.getImage(moveCounter));
+        Picture imageToDelete = super.image;
+        super.image = new Picture(position[0]+dx,position[1]+dy,super.direction.getImage(moveCounter));
         super.image.draw();
+        imageToDelete.delete();
+
         prevDirection = direction;
     }
 
@@ -77,6 +90,11 @@ public class Dorothy extends AbstractModel {
      * Interacts with random objects
      */
     public void interact() {}
+
+    private String genIdleImage(DirectionType cdirection){
+
+        return "/img/chars/girl/IDLE_"+ cdirection +"_MexerNoCabelo1.png";
+    }
 
     public int getMoveCounter() {
         return moveCounter;
