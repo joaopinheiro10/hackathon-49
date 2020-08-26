@@ -43,4 +43,14 @@ public class Dorothy extends AbstractModel {
     public void setDy(float dy) {
         this.dy = dy;
     }
+
+    /**
+     * Moves player
+     */
+    public void move(){}
+
+    /**
+     * Interacts with random objects
+     */
+    public void interact() {}
 }
