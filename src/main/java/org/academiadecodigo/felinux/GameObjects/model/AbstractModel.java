@@ -7,10 +7,18 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public abstract class AbstractModel extends GameObject {
 
     protected DirectionType direction;
-    protected boolean canMove;
+    protected boolean talking;
 
 
     public AbstractModel(Picture image) {
         super(image);
+    }
+
+    public boolean isTalking() {
+        return talking;
+    }
+
+    public void setTalking(boolean talking) {
+        this.talking = talking;
     }
 }
