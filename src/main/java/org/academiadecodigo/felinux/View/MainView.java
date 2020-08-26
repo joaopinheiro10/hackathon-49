@@ -32,7 +32,7 @@ public class MainView {
                         } else {
                             background.setHighEffect();
                         }
-                        //TODO joel
+
                         dorothy.move();
 
                         try {
