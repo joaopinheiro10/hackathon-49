@@ -10,8 +10,6 @@
         <property name="highnessLevel" value="50"/>
         <property name="talking" value="false"/>
         <property name="image" value="resources/image"/>
-        <property name="direction" value="DOWN"/>
-        <property name="moveCounter" value="0"/>
     </bean>
 
     <bean id="husband" class="org.academiadecodigo.felinux.GameObjects.model.Husband">
