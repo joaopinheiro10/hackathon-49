@@ -1,7 +1,6 @@
 package org.academiadecodigo.felinux.Services;
 
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
-import org.academiadecodigo.felinux.controller.PlayerController;
 
 public class GameCycle {
 

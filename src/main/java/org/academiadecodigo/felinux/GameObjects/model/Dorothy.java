@@ -14,7 +14,10 @@ public class Dorothy extends AbstractModel {
     private boolean idle;
     private DirectionType prevDirection;
 
+
     public Dorothy() {
+        this.prevDirection = DirectionType.DOWN;
+        direction = DirectionType.DOWN;
     }
 
     public int getHighnessLevel() {
@@ -54,30 +57,27 @@ public class Dorothy extends AbstractModel {
      */
     public void move(){
 
-        if(idle){
-
+        //TODO get idle to animate
+        if(talking || idle){
             return;
         }
 
-        if(!talking){
-
-            return;
-        }
-
-        int[] position = {super.image.getX(),super.image.getY()};
+        int[] position = {
+                super.image.getX(),super.image.getY()
+        };
+        System.out.println("adeus " + super.direction.getImage(moveCounter));
 
         //3 é o array de images, e caso, mude a direction
-        if(moveCounter>=3||prevDirection!=super.direction){
-
-            moveCounter=0;
-        }else{
+        if(moveCounter >= 3 || prevDirection != super.direction){
+            moveCounter = 0;
+        } else {
             moveCounter++;
         }
 
         super.image.delete();
         super.image = new Picture(position[0]+dx,position[1]+dy,super.direction.getImage(moveCounter));
         super.image.draw();
-        prevDirection = super.direction;
+        prevDirection = direction;
     }
 
     /**
