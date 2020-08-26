@@ -66,7 +66,7 @@ public class Dorothy extends AbstractModel {
         //TODO get idle to animate
         if(idle || talking){
             super.image.delete();
-            this.image = new Picture(position[0],position[1],"/sprites/girl/IDLE_BACK_MexerNoCabelo1.png");
+            this.image = new Picture(position[0],position[1],"/img/chars/girl/IDLE_BACK_MexerNoCabelo1.png");
             image.draw();
             return;
         }
