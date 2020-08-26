@@ -11,14 +11,14 @@ public class Background  {
     private static int green = 0;
     private static int blue = 0;
 
+    public Rectangle getRectangle() {
+        return rectangle;
+    }
 
     //Done
     public void setHighEffect() {
-            try {
-                Thread.sleep(30);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
+        System.out.println("redesenhar");
             if(red >= 200){
                 red = 30;
             }
@@ -37,11 +37,7 @@ public class Background  {
     }
 
     public void setDepressedEffect() {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
             if(red >= 200){
                 red = 50;
             }

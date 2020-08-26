@@ -9,10 +9,13 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class MainView {
+
     public MainView(){
         startGame();
     }
+
     public void startGame(){
+
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         final Background background = new Background();
         final Dorothy dorothy = new Dorothy();
@@ -22,19 +25,26 @@ public class MainView {
          * Game Loop
          */
         executorService.execute(
-        new Runnable() {
-            @Override
-            public void run() {
-                while (true) {
-                    if (dorothy.getHighnessLevel() > 75) {
-                    } else {
-                        background.setHighEffect();
+
+            new Runnable() {
+                @Override
+                public void run() {
+                    while (true) {
+
+                        if (dorothy.getHighnessLevel() > 75) {
+                        } else {
+                            background.setHighEffect();
+                        }
+                        //TODO joel
+                        dorothy.move();
+
+                        try {
+                            Thread.sleep(30);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
-                    dorothy.setImage(new Picture(50,50, "/sprites/girl/DEAD_LEFT_1.png"));
-                    //TODO joel
-                    dorothy.move();
                 }
-            }
-        });
+                });
     }
 }
