@@ -1,5 +1,6 @@
 package org.academiadecodigo.felinux.GameObjects.model;
 
+import org.academiadecodigo.felinux.View.HighnessMeter;
 import org.academiadecodigo.felinux.tools.DirectionType;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
@@ -7,7 +8,7 @@ public class Dorothy extends AbstractModel {
 
     private float dx;
     private float dy;
-    private int highnessLevel;
+    private HighnessMeter highnessMeter;
     private boolean alive;
     private int moveCounter;
     private boolean idle;
@@ -20,14 +21,6 @@ public class Dorothy extends AbstractModel {
         alive = true;
         image = new Picture(250,250, "img/chars/girl/IDLE_FRONT_1.png");
         idle = true;
-    }
-
-    public int getHighnessLevel() {
-        return highnessLevel;
-    }
-
-    public void setHighnessLevel(int highnessLevel) {
-        this.highnessLevel = highnessLevel;
     }
 
     public boolean isAlive() {
@@ -63,6 +56,7 @@ public class Dorothy extends AbstractModel {
                 super.image.getX(),super.image.getY()
         };
         Picture imageToDelete = null;
+        System.out.println(super.image.getX() + " "+super.image.getY());
 
         if(idle || talking){
             imageToDelete = super.image;

@@ -4,6 +4,7 @@ import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
 import org.academiadecodigo.felinux.controller.PlayerKeyboard;
 import org.academiadecodigo.felinux.map.Purgatory;
 import org.academiadecodigo.felinux.sound.Music;
+import org.academiadecodigo.felinux.View.HighnessMeter;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -36,10 +37,17 @@ public class MainView {
 
                     while (true) {
 
-                        if (dorothy.getHighnessLevel() > 75) {
-                        } else {
-                            background.setHighEffect();
+                        if (highnessMeter.getMeter() >= 195) {
+
+                            //CRIAR VELHA
+                        } else if(highnessMeter.getMeter() <= 65 ){
+
+                            //CRIAR NOVA
+                        } else{
+                            //VELHA
                         }
+
+                        background.setHighEffect();
                         purgatory.draw();
                         purgatory.animate();
                         //map.draw();
