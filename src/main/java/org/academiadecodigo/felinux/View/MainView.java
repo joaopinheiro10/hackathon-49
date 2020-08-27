@@ -1,6 +1,8 @@
 package org.academiadecodigo.felinux.View;
 
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
+import org.academiadecodigo.felinux.GameObjects.model.Fire;
+import org.academiadecodigo.felinux.GameObjects.model.Water;
 import org.academiadecodigo.felinux.controller.PlayerKeyboard;
 import org.academiadecodigo.felinux.map.Map;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
@@ -22,7 +24,9 @@ public class MainView {
         final Map map = new Map();
 
         //TODO criar classe for purgatory
-        final Picture purgatory = new Picture(100, 50, "/img/mansion/purgatory/purgatory.png");
+        final Picture purgatory = new Picture(50, 50, "/img/mansion/purgatory/purgatory.png");
+        final Water water = new Water();
+        final Fire fire = new Fire();
 
         /**
          * Game Loop
@@ -40,8 +44,9 @@ public class MainView {
                             background.setHighEffect();
                         }
                         purgatory.draw();
-                        map.draw();
-                        //TODO joel
+                        //map.draw();
+                        water.animate();
+                        fire.animate();
                         dorothy.move();
 
                         try {

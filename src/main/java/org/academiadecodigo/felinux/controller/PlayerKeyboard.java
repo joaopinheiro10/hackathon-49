@@ -148,13 +148,13 @@ public class PlayerKeyboard implements KeyboardHandler {
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_W||keyboardEvent.getKey() == KeyboardEvent.KEY_UP){
             player.setDy(player.getDy()-moveSpeed);;
-            player.setDirection(UP);
+            player.setDirection(FRONT);
             player.setIdle(false);
         }
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_S||keyboardEvent.getKey() == KeyboardEvent.KEY_DOWN){
             player.setDy(player.getDy()+moveSpeed);;
-            player.setDirection(DOWN);
+            player.setDirection(BACK);
             player.setIdle(false);
         }
 
