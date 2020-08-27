@@ -1,3 +1,4 @@
+/*
 package org.academiadecodigo.felinux.sound;
 
 import org.academiadecodigo.felinux.View.extras.HighnessMeter;
@@ -43,3 +44,4 @@ public class Music {
 
 
 }
+*/

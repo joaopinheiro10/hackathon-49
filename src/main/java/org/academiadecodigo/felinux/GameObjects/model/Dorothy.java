@@ -4,13 +4,12 @@ import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 import org.academiadecodigo.felinux.tools.DirectionType;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
-import org.springframework.core.SpringVersion;
 
 public class Dorothy extends AbstractModel {
 
     private float dx;
     private float dy;
-    private int highnessLevel;
+    private HighnessMeter highnessMeter;
     private boolean alive;
     private int moveCounter;
     private boolean idle;
@@ -59,10 +58,11 @@ public class Dorothy extends AbstractModel {
                 super.image.getX(),super.image.getY()
         };
         Picture imageToDelete = null;
+        //System.out.println(super.image.getX() + " "+super.image.getY());
 
         if(idle || talking){
             imageToDelete = super.image;
-            super.image = new Picture(position[0],position[1],genIdleImage(direction));
+            super.image = new Picture(position[0], position[1], genIdleImage(direction));
             image.draw();
             imageToDelete.delete();
             return;
@@ -118,7 +118,6 @@ public class Dorothy extends AbstractModel {
     }
 
     private String genIdleImage(DirectionType cdirection){
-
         if(HighnessMeter.meter >= 195){
             lastSprite = "/img/chars/girl/IDLE_"+ cdirection +"_1.png";
             return lastSprite;

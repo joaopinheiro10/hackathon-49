@@ -5,6 +5,9 @@ import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 
 import static org.academiadecodigo.felinux.GameObjects.map.MapType.*;
 import static org.academiadecodigo.felinux.Services.GameCycle.activeMap;
+import static org.academiadecodigo.felinux.GameObjects.map.MapType.*;
+import static org.academiadecodigo.felinux.Services.GameCycle.activeMap;
+import static org.academiadecodigo.felinux.Services.GameCycle.imageMap;
 
 public class HallView extends View{
 
@@ -24,5 +27,7 @@ public class HallView extends View{
             map.animate();
             player.move();
         }
+
+        activeMap = ATRIUM;
     }
 }
