@@ -38,8 +38,11 @@ public abstract class View {
      * Defines what happens inside each view
      */
     public void init(HighnessMeter hm, MapType mapType) {
+        System.out.println("entrei");
 
         while (player.isAlive() && activeMap == mapType) {
+
+            System.out.println("Passei");
 
             if (HighnessMeter.meter > 75) {
 
@@ -65,5 +68,6 @@ public abstract class View {
                 e.printStackTrace();
             }
         }
+        System.out.println("sai logo");
     }
 }

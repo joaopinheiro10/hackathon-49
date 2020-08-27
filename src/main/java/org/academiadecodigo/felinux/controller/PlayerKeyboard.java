@@ -1,5 +1,7 @@
 package org.academiadecodigo.felinux.controller;
+import org.academiadecodigo.felinux.GameObjects.map.MapType;
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
+import org.academiadecodigo.felinux.Services.GameCycle;
 import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 import org.academiadecodigo.felinux.tools.DirectionType;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
@@ -71,6 +73,10 @@ public class PlayerKeyboard implements KeyboardHandler {
         mapSwap.setKey(KeyboardEvent.KEY_SPACE);
         mapSwap.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
+        KeyboardEvent changeMap = new KeyboardEvent();
+        changeMap.setKey(KeyboardEvent.KEY_K);
+        changeMap.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
         keyboard.addEventListener(left);
         keyboard.addEventListener(right);
         keyboard.addEventListener(up);
@@ -81,6 +87,7 @@ public class PlayerKeyboard implements KeyboardHandler {
         keyboard.addEventListener(downArrow);
         keyboard.addEventListener(interact);
         keyboard.addEventListener(mapSwap);
+        keyboard.addEventListener(changeMap);
         /*
          * Key Released
          */
@@ -115,6 +122,7 @@ public class PlayerKeyboard implements KeyboardHandler {
         KeyboardEvent stopDown = new KeyboardEvent();
         stopDown.setKey(KeyboardEvent.KEY_S);
         stopDown.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
+
 
         keyboard.addEventListener(stopLeft);
         keyboard.addEventListener(stopRight);
@@ -164,6 +172,12 @@ public class PlayerKeyboard implements KeyboardHandler {
        // if(keyboardEvent.getKey() == KeyboardEvent.KEY_E){
        //     player.interact();
        // }
+
+        if(keyboardEvent.getKey() == KeyboardEvent.KEY_K) {
+            GameCycle.activeMap = MapType.HALL;
+        }
+
+
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE){
 
