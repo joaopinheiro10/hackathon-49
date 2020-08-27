@@ -14,6 +14,7 @@ public class Dorothy extends AbstractModel {
     private boolean idle;
     private DirectionType prevDirection;
     private String lastSprite = "/img/chars/oldLady/OLD_IDLE_FRONT.png";
+    private int[][] positions;
 
 
     public Dorothy() {
@@ -22,6 +23,11 @@ public class Dorothy extends AbstractModel {
         alive = true;
         image = new Picture(250,250, "img/chars/girl/IDLE_BACK.png");
         idle = true;
+    }
+
+    public void setPositions() {
+        positions = new int[][] {
+        };
     }
 
     public boolean isAlive() {

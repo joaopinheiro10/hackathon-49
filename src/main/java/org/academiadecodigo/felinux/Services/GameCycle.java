@@ -5,6 +5,7 @@ import org.academiadecodigo.felinux.GameObjects.map.MapType;
 import org.academiadecodigo.felinux.GameObjects.map.Purgatory;
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
 
+import org.academiadecodigo.felinux.GameObjects.model.Lion;
 import org.academiadecodigo.felinux.View.Menu;
 import org.academiadecodigo.felinux.View.PurgatoryView;
 
@@ -21,6 +22,7 @@ import java.util.List;
 public class GameCycle {
 
     private Dorothy player;
+    private Lion lion;
     public static MapType activeMap = MapType.ROOM;
     public static Picture imageMap = new Picture(50,50, activeMap.getSource());
     private List<View> mapList = new LinkedList<>();
@@ -33,6 +35,8 @@ public class GameCycle {
     public void setupGame() {
         highnessMeter = new HighnessMeter();
         player = new Dorothy();
+        lion = new Lion();
+        lion.setPlayer(player);
         PlayerKeyboard keyboard = new PlayerKeyboard(player);
 
         setupRoomView();
