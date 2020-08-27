@@ -4,7 +4,12 @@ import org.academiadecodigo.felinux.GameObjects.map.Hall;
 import org.academiadecodigo.felinux.GameObjects.map.MapType;
 import org.academiadecodigo.felinux.GameObjects.map.Purgatory;
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
+
+import org.academiadecodigo.felinux.View.Menu;
+import org.academiadecodigo.felinux.View.PurgatoryView;
+
 import org.academiadecodigo.felinux.View.*;
+
 import org.academiadecodigo.felinux.View.extras.Background;
 import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 import org.academiadecodigo.felinux.controller.PlayerKeyboard;
@@ -20,6 +25,7 @@ public class GameCycle {
     public static Picture imageMap = new Picture(50,50, activeMap.getSource());
     private List<View> mapList = new LinkedList<>();
     private HighnessMeter highnessMeter;
+    private Menu menu;
 
     public GameCycle() {
     }
@@ -41,9 +47,16 @@ public class GameCycle {
      */
     public void start() {
 
+
+        menu.startScreen();
+        menu.showInstructions();
+
+
+
         //Missing menu and Instructions
 
         mapList.get(0).init(highnessMeter, MapType.ROOM);
+
 
         mapList.get(1).init(highnessMeter, MapType.HALL);
 
