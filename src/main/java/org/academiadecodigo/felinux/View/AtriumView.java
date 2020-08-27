@@ -3,6 +3,7 @@ package org.academiadecodigo.felinux.View;
 import org.academiadecodigo.felinux.GameObjects.map.Atrium;
 import org.academiadecodigo.felinux.GameObjects.map.MapType;
 import org.academiadecodigo.felinux.View.extras.HighnessMeter;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import static org.academiadecodigo.felinux.GameObjects.map.MapType.*;
 import static org.academiadecodigo.felinux.Services.GameCycle.activeMap;
@@ -29,6 +30,8 @@ public class AtriumView extends View {
             if (firstTime) {
                 imageMap.draw();
                 player.getImage().draw();
+                hm.getMeterBar().draw();
+                hm.getRectangle().fill();
                 firstTime = false;
             }
 
@@ -43,9 +46,12 @@ public class AtriumView extends View {
             }
         }
 
-        imageMap.delete();
-        player.getImage().delete();
         activeMap = PURGATORY;
+        imageMap.delete();
+        imageMap = new Picture(50,50, activeMap.getSource());
+        player.getImage().delete();
+        hm.getRectangle().delete();
+        hm.getMeterBar().delete();
     }
 
 }

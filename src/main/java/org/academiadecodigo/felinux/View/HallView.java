@@ -3,6 +3,7 @@ package org.academiadecodigo.felinux.View;
 import org.academiadecodigo.felinux.GameObjects.map.Hall;
 import org.academiadecodigo.felinux.GameObjects.map.MapType;
 import org.academiadecodigo.felinux.View.extras.HighnessMeter;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import static org.academiadecodigo.felinux.GameObjects.map.MapType.*;
 import static org.academiadecodigo.felinux.Services.GameCycle.activeMap;
@@ -18,6 +19,8 @@ public class HallView extends View {
     }
 
     public void init(HighnessMeter hm, MapType mapType) {
+
+
         while (player.isAlive() && activeMap == mapType) {
 
             if (HighnessMeter.meter > 75) {
@@ -30,6 +33,8 @@ public class HallView extends View {
             if (firstTime) {
                 imageMap.draw();
                 player.getImage().draw();
+                hm.getMeterBar().draw();
+                hm.getRectangle().fill();
                 firstTime = false;
             }
 
@@ -46,7 +51,10 @@ public class HallView extends View {
 
         activeMap = ATRIUM;
         imageMap.delete();
+        imageMap = new Picture(50,50, activeMap.getSource());
         player.getImage().delete();
+        hm.getRectangle().delete();
+        hm.getMeterBar().delete();
     }
 }
 

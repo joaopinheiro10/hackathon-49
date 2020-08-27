@@ -62,4 +62,12 @@ public class HighnessMeter {
         meterBar.draw();
         rectangle.fill();
     }
+
+    public Picture getMeterBar() {
+        return meterBar;
+    }
+
+    public Rectangle getRectangle() {
+        return rectangle;
+    }
 }
