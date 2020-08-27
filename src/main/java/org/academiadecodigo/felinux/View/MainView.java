@@ -39,7 +39,7 @@ public class MainView {
                         } else {
                             background.setHighEffect();
                         }
-
+                        purgatory.draw();
                         map.draw();
                         //TODO joel
                         dorothy.move();
