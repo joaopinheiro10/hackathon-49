@@ -6,6 +6,6 @@ public class Husband extends AbstractModel {
 
 
     public Husband() {
-
+        image = new Picture(350, 250, )
     }
 }
