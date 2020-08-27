@@ -8,6 +8,7 @@ public enum MapType {
     ATRIUM("/img/mansion/atrium/atrium.png"),
     HALL("/img/mansion/hall/hall.png"),
     HEAVEN("/img/mansion/heaven/heaven.png"),
+    HELL("img/mansion/hell/hell.png"),
     PURGATORY("/img/mansion/purgatory/purgatory.png");
 
     private String source;
