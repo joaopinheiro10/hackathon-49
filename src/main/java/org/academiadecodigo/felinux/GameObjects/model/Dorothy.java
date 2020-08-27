@@ -58,7 +58,7 @@ public class Dorothy extends AbstractModel {
                     :"/img/chars/girl/IDLE_" + direction +".png");
             return;
         }
-
+        System.out.println(image.getX() + " " + image.getY());
         if(moveCounter >= 3 || prevDirection != super.direction){
             moveCounter = 0;
         } else {

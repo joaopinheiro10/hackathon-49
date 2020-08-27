@@ -21,7 +21,6 @@ public class GameCycle {
     private List<View> mapList = new LinkedList<>();
     private HighnessMeter highnessMeter;
 
-
     public GameCycle() {
     }
 
