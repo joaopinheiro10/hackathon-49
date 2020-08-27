@@ -1,40 +1,33 @@
 package org.academiadecodigo.felinux.sound;
 
-import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
 import org.academiadecodigo.felinux.View.HighnessMeter;
-import javax.sound.sampled.*;
-import java.io.*;
-import java.net.URL;
+
+import javax.sound.sampled.Clip;
+
 
 public class Music {
+
     private Clip clip;
-    private URL soundURL;
-
-
-    public Music(String path) {
-        initClip(path);
-    }
 
 
 
-    public void play(Dorothy player, HighnessMeter highnessMeter, SoundEffect soundEffect) {
-
+    public void play(HighnessMeter highnessMeter, SoundEffect soundEffect) {
 
 
         if (highnessMeter.getMeter() <= 65) {
+            play(highnessMeter, SoundEffect.DEPRESSED);
+        }
+
+        if (highnessMeter.getMeter() >= 65 && <= 195){
+            play(highnessMeter, SoundEffect.NORMAL);
 
         }
 
-
-        if(highnessMeter.getMeter() >= 65 && <= 195) {
-
-
+        if (highnessMeter.getMeter() >= 195) {
+            play(highnessMeter, SoundEffect.HIGH);
         }
 
-        if(highnessMeter.getMeter() >=195) {
-
         }
-    }
 
     }
 
