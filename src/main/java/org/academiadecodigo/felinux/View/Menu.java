@@ -5,16 +5,18 @@ import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Menu implements KeyboardHandler {
 
     private Keyboard keyboard;
     private GameCycle gameCycle;
     private boolean startGame;
-    private boolean exit;
+    private Picture menuStart;
+    private Picture instructionsScreen;
 
 
-    public void MenuHandler(GameCycle gameCycle) {
+    public Menu() {
         this.keyboard = new Keyboard(this);
         this.gameCycle = gameCycle;
         this.startGame = false;
@@ -26,11 +28,6 @@ public class Menu implements KeyboardHandler {
         sKey.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(sKey);
 
-
-        KeyboardEvent eKey = new KeyboardEvent();
-        eKey.setKey(KeyboardEvent.KEY_E);
-        eKey.setKey(KeyboardEvent.KEY_E);
-        keyboard.addEventListener(eKey);
     }
 
     @Override
@@ -41,16 +38,44 @@ public class Menu implements KeyboardHandler {
         }
 
 
-        if (keyboardEvent.getKey() == keyboardEvent.KEY_E) {
-            this.exit = true;
-        }
-
     }
 
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
     }
 
+    public void startScreen() {
+
+        menuStart = new Picture(0, 0, "/img/menuStart/menufinal.png");
+        menuStart.draw();
+
+    }
+
+    public void showInstructions() {
+        instructionsScreen = new Picture(0, 0, "/img/menuStart/instructions.png");
+        menuStart.delete();
+        instructionsScreen.draw();
+        timer();
+        instructionsScreen.delete();
+    }
+
+    public boolean isStartGame() {
+        return startGame;
+    }
+
+    public void setStartGame(boolean startGame) {
+        this.startGame = startGame;
+    }
+
+    public void timer() {
+        for (int i = 5; i > 0; i--) {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 }
 

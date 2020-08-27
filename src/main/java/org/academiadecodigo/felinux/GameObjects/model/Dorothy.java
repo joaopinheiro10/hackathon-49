@@ -14,14 +14,28 @@ public class Dorothy extends AbstractModel {
     private boolean idle;
     private DirectionType prevDirection;
     private String lastSprite = "/img/chars/oldLady/OLD_IDLE_FRONT.png";
+    private int[][] positions;
+    private int xPos = 250;
+    private int yPos = 250;
+    private boolean decision;
 
 
     public Dorothy() {
         this.prevDirection = DirectionType.BACK;
         direction = DirectionType.BACK;
         alive = true;
-        image = new Picture(250,250, "img/chars/girl/IDLE_BACK.png");
+        setPositions();
+        image = new Picture(xPos,yPos, "img/chars/girl/IDLE_BACK.png");
         idle = true;
+    }
+
+    public void setPositions() {
+        positions = new int[][] {
+                new int[]{250, 250},
+                new int[]{234, 406},
+                new int[]{542, 342},
+                new int[]{602, 442}
+        };
     }
 
     public boolean isAlive() {
@@ -58,7 +72,7 @@ public class Dorothy extends AbstractModel {
                     :"/img/chars/girl/IDLE_" + direction +".png");
             return;
         }
-
+        System.out.println(image.getX() + " " + image.getY());
         if(moveCounter >= 3 || prevDirection != super.direction){
             moveCounter = 0;
         } else {
@@ -101,6 +115,9 @@ public class Dorothy extends AbstractModel {
 
         return Math.sqrt(Math.pow((xA-xB),2)+Math.pow((yA-yB),2));
     }
+    public void setDecision(boolean decision) {
+        this.decision = decision;
+    }
 
     public int getMoveCounter() {
         return moveCounter;
@@ -121,4 +138,18 @@ public class Dorothy extends AbstractModel {
     public DirectionType getPrevDirection() {
         return prevDirection;
     }
+
+    public void setxPos(int xPos) {
+        this.xPos = xPos;
+    }
+
+    public void setyPos(int yPos) {
+        this.yPos = yPos;
+    }
+
+    public int[][] getPositions() {
+        return positions;
+    }
 }
+
+

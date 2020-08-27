@@ -5,7 +5,7 @@ package org.academiadecodigo.felinux.GameObjects.map;
  */
 public enum MapType {
     ROOM("/img/mansion/room.png"),
-    ATRIUM("/img/mansion/atrium/atrium.png"),
+    ATRIUM("/img/mansion/atrium/atriumScareCrow.png"),
     HALL("/img/mansion/hall/hall.png"),
     HEAVEN("/img/mansion/heaven/heaven.png"),
     HELL("img/mansion/hell/hell.png"),
