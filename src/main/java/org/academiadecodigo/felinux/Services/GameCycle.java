@@ -1,5 +1,7 @@
 package org.academiadecodigo.felinux.Services;
 
+import org.academiadecodigo.felinux.GameObjects.drugs.Shroom;
+import org.academiadecodigo.felinux.GameObjects.map.Map;
 import org.academiadecodigo.felinux.GameObjects.map.MapType;
 import org.academiadecodigo.felinux.GameObjects.map.Purgatory;
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
@@ -16,7 +18,6 @@ public class GameCycle {
     public static Picture imageMap = new Picture(50,50, activeMap.getSource());
     private PurgatoryView purgatoryView;
     private HighnessMeter highnessMeter;
-
 
     public GameCycle() {
     }

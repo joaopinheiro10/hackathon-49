@@ -1,5 +1,6 @@
 package org.academiadecodigo.felinux.View;
 
+import org.academiadecodigo.felinux.GameObjects.drugs.Shroom;
 import org.academiadecodigo.felinux.GameObjects.map.Purgatory;
 import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 
@@ -10,6 +11,7 @@ import static org.academiadecodigo.felinux.Services.GameCycle.imageMap;
 
 public class PurgatoryView extends View{
 
+    private Shroom shrooms;
 
     public PurgatoryView() {
         super(new Purgatory());
@@ -21,7 +23,6 @@ public class PurgatoryView extends View{
         while(player.isAlive() && activeMap == PURGATORY) {
 
             if (HighnessMeter.meter > 75) {
-
                 background.setHighEffect();
             } else {
                 background.setHighEffect();
@@ -32,7 +33,6 @@ public class PurgatoryView extends View{
                 player.getImage().draw();
                 firstTime = false;
             }
-
 
             hm.animate();
             map.animate();

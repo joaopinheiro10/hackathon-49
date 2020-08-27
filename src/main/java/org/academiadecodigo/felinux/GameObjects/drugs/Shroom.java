@@ -2,18 +2,31 @@ package org.academiadecodigo.felinux.GameObjects.drugs;
 
 import org.academiadecodigo.felinux.GameObjects.GameObject;
 import org.academiadecodigo.felinux.GameObjects.map.Map;
-import org.academiadecodigo.felinux.Services.GameCycle;
+import org.academiadecodigo.felinux.GameObjects.map.Purgatory;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Shroom extends GameObject {
 
-    private Picture shroom;
+    private Picture[] shrooms;
     private Map currentMap;
-    private static int shroomCounter = 0;
+    private static int purgatoryShroomCounter = 0;
     private static int maxShrooms = 10;
+    private static int counter = 0;
+    int[][] purgatoryPositions;
 
     public Shroom(Map currentMap) {
         this.currentMap = currentMap;
+        this.shrooms = new Picture[maxShrooms];
+
+        purgatoryPositions = new int [][]{
+                new int[]{306,266},
+                new int[]{434,252},
+                new int[]{238,366},
+                new int[]{606,321},
+                new int[]{362,422},
+                new int[]{250,318},
+                new int[]{514,366}
+        };
     }
 
     public void checkIfIsEaten(){
@@ -21,27 +34,26 @@ public class Shroom extends GameObject {
     }
 
     public void spawnShroom(){
-        if(shroomCounter == maxShrooms){
+        int randomSpawnTimer = (int) Math.ceil(Math.random() * 600) + 50;
+
+        if(counter <= randomSpawnTimer){
+            counter++;
             return;
         }
-        shroomCounter++;
+        counter = 0;
 
-        int mapMinX = GameCycle.imageMap.getX();
-        int mapMinY = GameCycle.imageMap.getY();
-
-        int mapMaxX = GameCycle.imageMap.getMaxX();
-        int mapMaxY = GameCycle.imageMap.getMaxY();
-
-        int randomPosX = (int) Math.floor(Math.random() * mapMaxX);
-        int randomPosY = (int) Math.floor(Math.random() * mapMaxY);
-
-        while(randomPosX >= mapMaxX && randomPosX <= mapMinX){
-            randomPosX = (int) Math.floor(Math.random() * mapMaxX);
+        if(purgatoryShroomCounter == 7){
+            return;
         }
-        while(randomPosY >= mapMaxY  && randomPosY <= mapMinY){
-            randomPosY = (int) Math.floor(Math.random() * mapMaxY);
+
+        if(currentMap.getClass() == Purgatory.class) {
+            this.shrooms[purgatoryShroomCounter] = new Picture(
+                    purgatoryPositions[purgatoryShroomCounter][0], purgatoryPositions[purgatoryShroomCounter][1], "/img/element/shrooms/shroom.png"
+            );
         }
-        this.shroom = new Picture(randomPosX,randomPosY, "/img/element/shrooms/shroom.png");
-        shroom.draw();
+        for (int i = 0; i < purgatoryShroomCounter; i++) {
+            shrooms[i].draw();
+        }
+        purgatoryShroomCounter++;
     }
 }

@@ -1,5 +1,6 @@
 package org.academiadecodigo.felinux.View;
 
+import org.academiadecodigo.felinux.GameObjects.drugs.Shroom;
 import org.academiadecodigo.felinux.GameObjects.map.Map;
 import org.academiadecodigo.felinux.GameObjects.map.Room;
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
@@ -17,9 +18,9 @@ public abstract class View {
     protected Background background;
 
     public View(Map map) {
-        this.map = map;
         this.firstTime = true;
-        background = new Background();
+        this.background = new Background();
+        this.map = map;
     }
 
     /**

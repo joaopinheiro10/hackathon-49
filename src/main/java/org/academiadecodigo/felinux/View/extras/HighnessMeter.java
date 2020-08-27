@@ -16,7 +16,7 @@ public class HighnessMeter {
 
     private Picture meterBar = new Picture(5, 20 + 465, "/meter/meter.png");
     private Rectangle rectangle = new Rectangle(109, 73 + 465, meter, 36);
-    private int counter;
+    private int counter = 15;
 
     private boolean goingRight = false;
 
@@ -27,12 +27,12 @@ public class HighnessMeter {
 
     public void animate() {
 
-        if(counter<=15){
-            counter++;
+        if(counter > 15){
+            counter--;
             return;
         }
 
-        counter = 0;
+        counter = 30;
 
         if (meter > 259) {
             goingRight = false;
@@ -49,7 +49,6 @@ public class HighnessMeter {
         else if (meter > 165) {
             rectangle.setColor(new Color(250, 27, 27));
         }
-        //TODO era fixe meter uma threadSleep aqui para por o meter mais lento
         if (goingRight) {
             this.rectangle.translate(1, 0);
             this.rectangle.grow(1, 0);
