@@ -9,7 +9,6 @@ public abstract class AbstractModel extends GameObject {
     protected DirectionType direction;
     protected boolean talking;
 
-
     public AbstractModel() {
     }
 
