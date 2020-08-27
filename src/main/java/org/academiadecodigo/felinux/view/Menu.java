@@ -11,12 +11,12 @@ import static org.academiadecodigo.felinux.tools.DirectionType.RIGHT;
 public class Menu implements KeyboardHandler {
 
     private Keyboard keyboard;
-    private Game game;
+    private org.academiadecodigo.felinux.view.Game game;
     private boolean startGame;
     private boolean showInstructions;
 
 
-    public void MenuHandler(Game game) {
+    public void MenuHandler(org.academiadecodigo.felinux.view.Game game) {
         this.keyboard = new Keyboard(this);
         this.game = game;
         this.startGame = false;
