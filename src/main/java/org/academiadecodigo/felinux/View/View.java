@@ -1,16 +1,12 @@
 package org.academiadecodigo.felinux.View;
 
-import org.academiadecodigo.felinux.GameObjects.drugs.Shroom;
 import org.academiadecodigo.felinux.GameObjects.map.Map;
 import org.academiadecodigo.felinux.GameObjects.map.MapType;
-import org.academiadecodigo.felinux.GameObjects.map.Room;
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
 import org.academiadecodigo.felinux.View.extras.Background;
 import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 
-import static org.academiadecodigo.felinux.GameObjects.map.MapType.ROOM;
 import static org.academiadecodigo.felinux.Services.GameCycle.activeMap;
-import static org.academiadecodigo.felinux.GameObjects.map.MapType.HALL;
 import static org.academiadecodigo.felinux.Services.GameCycle.imageMap;
 
 public abstract class View {
@@ -38,11 +34,8 @@ public abstract class View {
      * Defines what happens inside each view
      */
     public void init(HighnessMeter hm, MapType mapType) {
-        //System.out.println("entrei");
-
+        int counter =0;
         while (player.isAlive() && activeMap == mapType) {
-
-            //System.out.println("Passei");
 
             if (HighnessMeter.meter > 75) {
 
@@ -57,17 +50,22 @@ public abstract class View {
                 firstTime = false;
             }
 
-
             hm.animate();
             map.animate();
             player.move();
 
+            if(counter++>=101){
+                activeMap = MapType.HALL;
+                break;
+            }
             try {
                 Thread.sleep(30);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        System.out.println("sai logo");
+
+        imageMap.delete();
+        player.getImage().delete();
     }
 }
