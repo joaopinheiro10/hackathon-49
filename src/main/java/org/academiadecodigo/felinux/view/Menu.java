@@ -1,24 +1,22 @@
 package org.academiadecodigo.felinux.view;
 
+import org.academiadecodigo.felinux.Services.GameCycle;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
-import static org.academiadecodigo.felinux.tools.DirectionType.LEFT;
-import static org.academiadecodigo.felinux.tools.DirectionType.RIGHT;
-
 public class Menu implements KeyboardHandler {
 
     private Keyboard keyboard;
-    private org.academiadecodigo.felinux.view.Game game;
+    private GameCycle gameCycle;
     private boolean startGame;
-    private boolean showInstructions;
+    private boolean exit;
 
 
-    public void MenuHandler(org.academiadecodigo.felinux.view.Game game) {
+    public void MenuHandler(GameCycle gameCycle) {
         this.keyboard = new Keyboard(this);
-        this.game = game;
+        this.gameCycle = gameCycle;
         this.startGame = false;
     }
 
@@ -28,10 +26,11 @@ public class Menu implements KeyboardHandler {
         sKey.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(sKey);
 
-        KeyboardEvent iKey = new KeyboardEvent();
-        iKey.setKey(KeyboardEvent.KEY_I);
-        iKey.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
-        keyboard.addEventListener(iKey);
+
+        KeyboardEvent eKey = new KeyboardEvent();
+        eKey.setKey(KeyboardEvent.KEY_E);
+        eKey.setKey(KeyboardEvent.KEY_E);
+        keyboard.addEventListener(eKey);
     }
 
     @Override
@@ -41,9 +40,9 @@ public class Menu implements KeyboardHandler {
             this.startGame = true;
         }
 
-        if (keyboardEvent.getKey() == KeyboardEvent.KEY_I) {
-            this.showInstructions = true;
 
+        if (keyboardEvent.getKey() == keyboardEvent.KEY_E) {
+            this.exit = true;
         }
 
     }
