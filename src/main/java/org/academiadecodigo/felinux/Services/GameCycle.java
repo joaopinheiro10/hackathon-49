@@ -47,6 +47,7 @@ public class GameCycle {
      * While player is alive, game is looping
      */
     public void start() {
+<<<<<<< HEAD
 
         menu.init();
 
@@ -55,6 +56,13 @@ public class GameCycle {
         }
 
         menu.showInstructions();
+=======
+        /*
+        menu.startScreen();
+        menu.showInstructions();
+
+*/
+>>>>>>> 3e7fb277d56db62c0498da6f2f2ff38e6758228b
 
 
         mapList.get(0).init(highnessMeter, MapType.ROOM);

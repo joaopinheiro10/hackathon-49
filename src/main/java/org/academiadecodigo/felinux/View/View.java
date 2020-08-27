@@ -68,4 +68,6 @@ public abstract class View {
         imageMap.delete();
         player.getImage().delete();
     }
+    public void spawnItems(){
+    }
 }
