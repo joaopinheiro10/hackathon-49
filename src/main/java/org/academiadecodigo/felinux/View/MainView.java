@@ -18,8 +18,10 @@ public class MainView {
     }
 
     public void startGame(){
-        Music music = new Music("/sounds/Depressed_Somewhere_Over_the_Rainbow_OLD_WAV.mp3");
-        music.play(true);
+
+        //Music music = new Music("/sounds/Depressed_Somewhere_Over_the_Rainbow_OLD_WAV.mp3");
+        //music.play(true);
+
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         final Background background = new Background();
         final Dorothy dorothy = new Dorothy();
@@ -30,6 +32,7 @@ public class MainView {
         final Picture purgatory = new Picture(50, 50, "/img/mansion/purgatory/purgatory.png");
         final Water water = new Water();
         final Fire fire = new Fire();
+        //TODO man make this work
         final HighnessMeter highnessMeter = new HighnessMeter();
 
         /**
@@ -42,10 +45,17 @@ public class MainView {
 
                     while (true) {
 
-                        if (dorothy.getHighnessLevel() > 75) {
-                        } else {
-                            background.setHighEffect();
+                        if (highnessMeter.getMeter() >= 195) {
+
+                            //CRIAR VELHA
+                        } else if(highnessMeter.getMeter() <= 65 ){
+
+                            //CRIAR NOVA
+                        } else{
+                            //VELHA
                         }
+
+                        background.setHighEffect();
                         purgatory.draw();
                         //map.draw();
                         water.animate();
