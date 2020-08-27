@@ -3,13 +3,16 @@ package org.academiadecodigo.felinux.GameObjects.drugs;
 import org.academiadecodigo.felinux.GameObjects.GameObject;
 import org.academiadecodigo.felinux.GameObjects.map.Map;
 import org.academiadecodigo.felinux.GameObjects.map.Purgatory;
+import org.academiadecodigo.felinux.GameObjects.map.Room;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Shroom extends GameObject {
 
     private Picture[] shrooms;
+    private Picture roomShroom;
     private Map currentMap;
     private static int purgatoryShroomCounter = 0;
+    private static int roomShroomCounter = 0;
     private static int maxShrooms = 10;
     private static int counter = 0;
     int[][] purgatoryPositions;
@@ -34,6 +37,17 @@ public class Shroom extends GameObject {
     }
 
     public void spawnShroom(){
+
+        if(currentMap.getClass() == Room.class) {
+            if(roomShroomCounter >= 1){
+                return;
+            }
+            this.roomShroom = new Picture(
+                    234, 342, "/img/element/shrooms/shroom.png"
+            );
+            roomShroomCounter++;
+            roomShroom.draw();
+        }
         int randomSpawnTimer = (int) Math.ceil(Math.random() * 600) + 50;
 
         if(counter <= randomSpawnTimer){
@@ -42,18 +56,18 @@ public class Shroom extends GameObject {
         }
         counter = 0;
 
-        if(purgatoryShroomCounter == 7){
-            return;
-        }
-
         if(currentMap.getClass() == Purgatory.class) {
+            if(purgatoryShroomCounter == 7){
+                return;
+            }
             this.shrooms[purgatoryShroomCounter] = new Picture(
                     purgatoryPositions[purgatoryShroomCounter][0], purgatoryPositions[purgatoryShroomCounter][1], "/img/element/shrooms/shroom.png"
             );
+
+            for (int i = 0; i < purgatoryShroomCounter; i++) {
+                shrooms[i].draw();
+            }
+            purgatoryShroomCounter++;
         }
-        for (int i = 0; i < purgatoryShroomCounter; i++) {
-            shrooms[i].draw();
-        }
-        purgatoryShroomCounter++;
     }
 }

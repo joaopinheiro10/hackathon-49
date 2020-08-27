@@ -13,5 +13,4 @@ public class RoomView extends View{
     public RoomView() {
         super(new Room());
     }
-
 }
