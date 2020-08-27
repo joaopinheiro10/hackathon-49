@@ -80,10 +80,13 @@ public class Dorothy extends AbstractModel {
             moveCounter++;
         }
 
-        imageToDelete = super.image;
-        super.image = new Picture(position[0]+dx,position[1]+dy,super.direction.getImage(moveCounter));
-        super.image.draw();
-        imageToDelete.delete();
+        super.image.load(direction.getImage(moveCounter));
+        super.image.translate(dx,dy);
+
+        //imageToDelete = super.image;
+        //super.image = new Picture(position[0]+dx,position[1]+dy,super.direction.getImage(moveCounter));
+        //super.image.draw();
+        //imageToDelete.delete();
 
         prevDirection = direction;
     }
