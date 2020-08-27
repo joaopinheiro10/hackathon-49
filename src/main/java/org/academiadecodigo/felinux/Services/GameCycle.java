@@ -1,11 +1,13 @@
 package org.academiadecodigo.felinux.Services;
 
-import org.academiadecodigo.felinux.GameObjects.map.Hall;
 import org.academiadecodigo.felinux.GameObjects.map.MapType;
-import org.academiadecodigo.felinux.GameObjects.map.Purgatory;
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
+
+import org.academiadecodigo.felinux.GameObjects.model.Lion;
+import org.academiadecodigo.felinux.View.Menu;
+import org.academiadecodigo.felinux.View.PurgatoryView;
+
 import org.academiadecodigo.felinux.View.*;
-import org.academiadecodigo.felinux.View.extras.Background;
 import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 import org.academiadecodigo.felinux.controller.PlayerKeyboard;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
@@ -16,19 +18,22 @@ import java.util.List;
 public class GameCycle {
 
     private Dorothy player;
+    private Lion lion;
     public static MapType activeMap = MapType.ROOM;
     public static Picture imageMap = new Picture(50,50, activeMap.getSource());
     private List<View> mapList = new LinkedList<>();
     private HighnessMeter highnessMeter;
-
+    private Menu menu;
 
     public GameCycle() {
     }
 
     public void setupGame() {
-        Background background = new Background();
         highnessMeter = new HighnessMeter();
         player = new Dorothy();
+        lion = new Lion();
+        lion.setPlayer(player);
+        menu = new Menu();
         PlayerKeyboard keyboard = new PlayerKeyboard(player);
 
         setupRoomView();
@@ -43,22 +48,25 @@ public class GameCycle {
      */
     public void start() {
 
-        mapList.get(0).init(highnessMeter, activeMap);
+        menu.init();
 
-        mapList.get(1).init(highnessMeter, activeMap);
-        /*menu.init();
-
-        instructions.show();
-
-        roomView.init();
-        if(!player.isAlive()) {
-
-            // TODO View for losing
-            System.out.println("Game Over");
-            start();
+        while (!menu.isStartGame()) {
+            menu.startScreen();
         }
 
-        hallView.init();*/
+        menu.showInstructions();
+
+        mapList.get(0).init(highnessMeter, MapType.ROOM);
+
+
+        mapList.get(1).init(highnessMeter, MapType.HALL);
+
+        mapList.get(2).init(highnessMeter, activeMap);
+
+        mapList.get(3).init(highnessMeter, activeMap);
+
+        //Missing final scene
+
 
     }
 
