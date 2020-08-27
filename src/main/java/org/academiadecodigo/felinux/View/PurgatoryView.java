@@ -11,7 +11,6 @@ import static org.academiadecodigo.felinux.Services.GameCycle.imageMap;
 
 public class PurgatoryView extends View{
 
-    private Shroom shrooms;
 
     public PurgatoryView() {
         super(new Purgatory());
