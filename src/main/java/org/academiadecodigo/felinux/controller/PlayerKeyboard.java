@@ -65,9 +65,9 @@ public class PlayerKeyboard implements KeyboardHandler {
         interact.setKey(KeyboardEvent.KEY_E);
         interact.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
-        KeyboardEvent attack = new KeyboardEvent();
-        attack.setKey(KeyboardEvent.KEY_SPACE);
-        attack.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        KeyboardEvent mapSwap = new KeyboardEvent();
+        mapSwap.setKey(KeyboardEvent.KEY_SPACE);
+        mapSwap.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
         keyboard.addEventListener(left);
         keyboard.addEventListener(right);
@@ -78,7 +78,7 @@ public class PlayerKeyboard implements KeyboardHandler {
         keyboard.addEventListener(upArrow);
         keyboard.addEventListener(downArrow);
         keyboard.addEventListener(interact);
-        keyboard.addEventListener(attack);
+        keyboard.addEventListener(mapSwap);
         /*
          * Key Released
          */
@@ -148,18 +148,22 @@ public class PlayerKeyboard implements KeyboardHandler {
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_W||keyboardEvent.getKey() == KeyboardEvent.KEY_UP){
             player.setDy(player.getDy()-moveSpeed);;
-            player.setDirection(UP);
+            player.setDirection(FRONT);
             player.setIdle(false);
         }
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_S||keyboardEvent.getKey() == KeyboardEvent.KEY_DOWN){
             player.setDy(player.getDy()+moveSpeed);;
-            player.setDirection(DOWN);
+            player.setDirection(BACK);
             player.setIdle(false);
         }
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_E){
             player.interact();
+        }
+
+        if(keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE){
+
         }
     }
     /**

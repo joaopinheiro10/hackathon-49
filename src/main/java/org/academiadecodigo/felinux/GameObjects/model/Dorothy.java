@@ -2,7 +2,6 @@ package org.academiadecodigo.felinux.GameObjects.model;
 
 import org.academiadecodigo.felinux.tools.DirectionType;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
-import org.springframework.core.SpringVersion;
 
 public class Dorothy extends AbstractModel {
 
@@ -16,10 +15,11 @@ public class Dorothy extends AbstractModel {
 
 
     public Dorothy() {
-        this.prevDirection = DirectionType.DOWN;
-        direction = DirectionType.DOWN;
+        this.prevDirection = DirectionType.BACK;
+        direction = DirectionType.BACK;
         alive = true;
-        image = new Picture(50,50, "img/chars/girl/DEAD_LEFT_1.png");
+        image = new Picture(250,250, "img/chars/girl/IDLE_FRONT_1.png");
+        idle = true;
     }
 
     public int getHighnessLevel() {
@@ -62,11 +62,13 @@ public class Dorothy extends AbstractModel {
         int[] position = {
                 super.image.getX(),super.image.getY()
         };
+        Picture imageToDelete = null;
 
         if(idle || talking){
-            super.image.delete();
-            this.image = new Picture(position[0],position[1],genIdleImage(direction));
+            imageToDelete = super.image;
+            super.image = new Picture(position[0],position[1],genIdleImage(direction));
             image.draw();
+            imageToDelete.delete();
             return;
         }
 
@@ -78,7 +80,7 @@ public class Dorothy extends AbstractModel {
             moveCounter++;
         }
 
-        Picture imageToDelete = super.image;
+        imageToDelete = super.image;
         super.image = new Picture(position[0]+dx,position[1]+dy,super.direction.getImage(moveCounter));
         super.image.draw();
         imageToDelete.delete();
@@ -93,7 +95,7 @@ public class Dorothy extends AbstractModel {
 
     private String genIdleImage(DirectionType cdirection){
 
-        return "/img/chars/girl/IDLE_"+ cdirection +"_MexerNoCabelo1.png";
+        return "/img/chars/girl/IDLE_"+ cdirection +"_1.png";
     }
 
     public int getMoveCounter() {
