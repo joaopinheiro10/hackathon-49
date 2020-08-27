@@ -5,6 +5,7 @@ import org.academiadecodigo.felinux.GameObjects.model.Fire;
 import org.academiadecodigo.felinux.GameObjects.model.Water;
 import org.academiadecodigo.felinux.controller.PlayerKeyboard;
 import org.academiadecodigo.felinux.map.Map;
+import org.academiadecodigo.felinux.sound.Music;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.concurrent.ExecutorService;
@@ -17,6 +18,8 @@ public class MainView {
     }
 
     public void startGame(){
+        Music music = new Music("/sounds/Depressed_Somewhere_Over_the_Rainbow_OLD_WAV.mp3");
+        music.play(true);
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         final Background background = new Background();
         final Dorothy dorothy = new Dorothy();
@@ -27,12 +30,12 @@ public class MainView {
         final Picture purgatory = new Picture(50, 50, "/img/mansion/purgatory/purgatory.png");
         final Water water = new Water();
         final Fire fire = new Fire();
+        final HighnessMeter highnessMeter = new HighnessMeter();
 
         /**
          * Game Loop
          */
         executorService.execute(
-
             new Runnable() {
                 @Override
                 public void run() {
@@ -48,6 +51,7 @@ public class MainView {
                         water.animate();
                         fire.animate();
                         dorothy.move();
+                        highnessMeter.animate();
 
                         try {
                             Thread.sleep(30);
@@ -56,6 +60,7 @@ public class MainView {
                         }
                     }
                 }
-                });
+            }
+        );
     }
 }
