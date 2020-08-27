@@ -1,12 +1,9 @@
 package org.academiadecodigo.felinux.View;
 
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
-import org.academiadecodigo.felinux.GameObjects.model.Fire;
-import org.academiadecodigo.felinux.GameObjects.model.Water;
 import org.academiadecodigo.felinux.controller.PlayerKeyboard;
-import org.academiadecodigo.felinux.map.Map;
+import org.academiadecodigo.felinux.map.Purgatory;
 import org.academiadecodigo.felinux.sound.Music;
-import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -24,12 +21,9 @@ public class MainView {
         final Background background = new Background();
         final Dorothy dorothy = new Dorothy();
         PlayerKeyboard keyboard = new PlayerKeyboard(dorothy);
-        final Map map = new Map();
 
         //TODO criar classe for purgatory
-        final Picture purgatory = new Picture(50, 50, "/img/mansion/purgatory/purgatory.png");
-        final Water water = new Water();
-        final Fire fire = new Fire();
+        final Purgatory purgatory = new Purgatory();
         final HighnessMeter highnessMeter = new HighnessMeter();
 
         /**
@@ -47,9 +41,8 @@ public class MainView {
                             background.setHighEffect();
                         }
                         purgatory.draw();
+                        purgatory.animate();
                         //map.draw();
-                        water.animate();
-                        fire.animate();
                         dorothy.move();
                         highnessMeter.animate();
 
