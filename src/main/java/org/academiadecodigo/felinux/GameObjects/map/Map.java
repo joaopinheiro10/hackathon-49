@@ -8,7 +8,8 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public abstract class Map {
 
     private MapType currentMap;
-    protected Shroom shrooms;
+    protected Shroom purgatoryShrooms;
+    protected Shroom roomShroom;
     public Map(MapType currentMap) {
         this.currentMap = currentMap;
     }

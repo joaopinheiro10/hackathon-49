@@ -14,12 +14,12 @@ public class Purgatory extends Map{
         super(PURGATORY);
         fire = new Fire();
         water = new Water();
-        shrooms = new Shroom(this);
+        purgatoryShrooms = new Shroom(this);
     }
 
     public void animate() {
         fire.animate();
         water.animate();
-        shrooms.spawnShroom();
+        purgatoryShrooms.spawnShroom();
     }
 }
