@@ -17,6 +17,7 @@ public class Dorothy extends AbstractModel {
     private int[][] positions;
     private int xPos = 250;
     private int yPos = 250;
+    private boolean decision;
 
 
     public Dorothy() {
@@ -114,6 +115,9 @@ public class Dorothy extends AbstractModel {
 
         return Math.sqrt(Math.pow((xA-xB),2)+Math.pow((yA-yB),2));
     }
+    public void setDecision(boolean decision) {
+        this.decision = decision;
+    }
 
     public int getMoveCounter() {
         return moveCounter;
@@ -147,3 +151,5 @@ public class Dorothy extends AbstractModel {
         return positions;
     }
 }
+
+

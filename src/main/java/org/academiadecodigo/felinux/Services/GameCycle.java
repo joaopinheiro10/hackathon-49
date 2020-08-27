@@ -56,7 +56,6 @@ public class GameCycle {
 
         menu.showInstructions();
 
-
         mapList.get(0).init(highnessMeter, MapType.ROOM);
 
 
