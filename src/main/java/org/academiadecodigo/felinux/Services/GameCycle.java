@@ -33,6 +33,7 @@ public class GameCycle {
     public void setupGame() {
         highnessMeter = new HighnessMeter();
         player = new Dorothy();
+        menu = new Menu();
         PlayerKeyboard keyboard = new PlayerKeyboard(player);
 
         setupRoomView();
@@ -47,13 +48,14 @@ public class GameCycle {
      */
     public void start() {
 
+        menu.init();
 
-        menu.startScreen();
+        while (!menu.isStartGame()) {
+            menu.startScreen();
+        }
+
         menu.showInstructions();
 
-
-
-        //Missing menu and Instructions
 
         mapList.get(0).init(highnessMeter, MapType.ROOM);
 
