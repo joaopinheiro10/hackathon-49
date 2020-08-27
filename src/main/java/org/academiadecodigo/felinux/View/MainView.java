@@ -38,7 +38,7 @@ public class MainView {
                             background.setHighEffect();
                         }
 
-                        map.getImage().draw();
+                        map.draw();
                         //TODO joel
                         dorothy.move();
 
