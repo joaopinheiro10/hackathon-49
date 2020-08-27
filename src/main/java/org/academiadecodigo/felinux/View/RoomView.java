@@ -29,6 +29,10 @@ public class RoomView extends View{
 
             if (firstTime) {
                 imageMap.draw();
+
+                Room room = (Room) super.map;
+                room.spawnItems();
+
                 player.getImage().draw();
                 firstTime = false;
             }
@@ -36,12 +40,15 @@ public class RoomView extends View{
             hm.animate();
             map.animate();
             player.move();
+            Room room = (Room) super.map;
+            room.spawnItems();
 
             try {
                 Thread.sleep(30);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
         }
 
         activeMap = HALL;
