@@ -7,9 +7,11 @@ import static org.academiadecodigo.felinux.map.MapType.*;
 public class Map extends GameObject {
 
     private MapType currentMap;
+    private MapType previousMap;
 
     public Map() {
         currentMap = ATRIUM;
+        previousMap = ATRIUM;
         image = new Picture(50,50, currentMap.getSource());
     }
 
@@ -23,11 +25,12 @@ public class Map extends GameObject {
     }
 
     public void draw() {
-        if(currentMap == ROOM) {
+        if(currentMap != previousMap) {
+            image.delete();
+            image = new Picture(50,50, currentMap.getSource());
+            image.draw();
+            previousMap = currentMap;
             return;
         }
-
-        image.draw();
-        currentMap = ROOM;
     }
 }
