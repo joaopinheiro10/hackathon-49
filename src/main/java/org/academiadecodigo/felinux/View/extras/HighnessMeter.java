@@ -11,11 +11,12 @@ import java.util.Map;
 public class HighnessMeter {
 
     //MIN = 0     MAX = 260
-    //25% = 65 ;  50% = 130   ;   75% = 195
+    //25% = 65   ;  50% = 130   ;   75% = 195
     public static int meter = 260;
 
     private Picture meterBar = new Picture(5, 20 + 465, "/meter/meter.png");
     private Rectangle rectangle = new Rectangle(109, 73 + 465, meter, 36);
+    private int counter;
 
     private boolean goingRight = false;
 
@@ -25,6 +26,14 @@ public class HighnessMeter {
     }
 
     public void animate() {
+
+        if(counter<=15){
+            counter++;
+            return;
+        }
+
+        counter = 0;
+
         if (meter > 259) {
             goingRight = false;
         } else if (meter <= 0) {

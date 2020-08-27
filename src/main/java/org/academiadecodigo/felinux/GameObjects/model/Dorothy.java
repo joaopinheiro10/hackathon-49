@@ -1,7 +1,6 @@
 package org.academiadecodigo.felinux.GameObjects.model;
 
 import org.academiadecodigo.felinux.View.extras.HighnessMeter;
-import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 import org.academiadecodigo.felinux.tools.DirectionType;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
@@ -14,14 +13,14 @@ public class Dorothy extends AbstractModel {
     private int moveCounter;
     private boolean idle;
     private DirectionType prevDirection;
-    private String lastSprite = "/img/chars/oldLady/IDLE_FRONT_1.png";
+    private String lastSprite = "/img/chars/oldLady/OLD_IDLE_FRONT.png";
 
 
     public Dorothy() {
-        this.prevDirection = DirectionType.GIRL_BACK;
-        direction = DirectionType.GIRL_BACK;
+        this.prevDirection = DirectionType.BACK;
+        direction = DirectionType.BACK;
         alive = true;
-        image = new Picture(250,250, "img/chars/girl/IDLE_FRONT_1.png");
+        image = new Picture(250,250, "img/chars/girl/IDLE_BACK.png");
         idle = true;
     }
 
@@ -54,36 +53,21 @@ public class Dorothy extends AbstractModel {
      */
     public void move(){
 
-        int[] position = {
-                super.image.getX(),super.image.getY()
-        };
-        Picture imageToDelete = null;
-        //System.out.println(super.image.getX() + " "+super.image.getY());
-
-        if(idle || talking){
-            imageToDelete = super.image;
-            super.image = new Picture(position[0], position[1], genIdleImage(direction));
-            image.draw();
-            imageToDelete.delete();
+        if(idle){
+            super.image.load((HighnessMeter.meter<=65)?"/img/chars/oldLady/OLD_IDLE_"+ direction +".png"
+                    :"/img/chars/girl/IDLE_" + direction +".png");
             return;
         }
 
-        // 3 é o array de images, e caso, mude a direction
-        // TODO aumentar pixeis
         if(moveCounter >= 3 || prevDirection != super.direction){
             moveCounter = 0;
         } else {
             moveCounter++;
         }
 
-        super.image.load(direction.getImage(moveCounter));
+        super.image.load((HighnessMeter.meter<=65)?direction.getOldImages(moveCounter):direction.getImage(moveCounter));
+
         super.image.translate(dx,dy);
-
-        //imageToDelete = super.image;
-        //super.image = new Picture(position[0]+dx,position[1]+dy,super.direction.getImage(moveCounter));
-        //super.image.draw();
-        //imageToDelete.delete();
-
         prevDirection = direction;
     }
 
@@ -103,6 +87,7 @@ public class Dorothy extends AbstractModel {
         int distance = ( interactable.getWidth()+player.getWidth() )/2;
         return getDistance(xA,yA,xB,yB)<=distance;
     }
+
     /**
      * Almighty God, calculator of distance, ruler of the maths
      * Aka DONT TOUCH
@@ -115,18 +100,6 @@ public class Dorothy extends AbstractModel {
     private static double getDistance(double xA, double yA, double xB, double yB){
 
         return Math.sqrt(Math.pow((xA-xB),2)+Math.pow((yA-yB),2));
-    }
-
-    private String genIdleImage(DirectionType cdirection){
-        if(HighnessMeter.meter >= 195){
-            lastSprite = "/img/chars/girl/IDLE_"+ cdirection +"_1.png";
-            return lastSprite;
-        }
-        if(HighnessMeter.meter <= 65){
-            lastSprite = "/img/chars/oldLady/IDLE_FRONT_1.png";
-            return lastSprite;
-        }
-        return lastSprite;
     }
 
     public int getMoveCounter() {
@@ -143,5 +116,9 @@ public class Dorothy extends AbstractModel {
 
     public void setIdle(boolean status) {
         this.idle = status;
+    }
+
+    public DirectionType getPrevDirection() {
+        return prevDirection;
     }
 }

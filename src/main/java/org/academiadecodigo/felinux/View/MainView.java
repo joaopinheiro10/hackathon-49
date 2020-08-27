@@ -8,17 +8,16 @@ import org.academiadecodigo.felinux.View.extras.Background;
 import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 import org.academiadecodigo.felinux.controller.PlayerKeyboard;
 
-
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class MainView {
 
     public MainView(){
-        startGame();
+        //startGame();
     }
 
-    public void startGame(){
+    /*public void startGame(){
        // Music music = new Music("/sounds/Depressed_Somewhere_Over_the_Rainbow_OLD_WAV.mp3");
         //music.play(true);
         ExecutorService executorService = Executors.newSingleThreadExecutor();
@@ -31,9 +30,9 @@ public class MainView {
         final HighnessMeter highnessMeter = new HighnessMeter();
         final Shroom shroom = new Shroom(purgatory);
 
-        /**
+        *//**
          * Game Loop
-         */
+         *//*
         executorService.execute(
             new Runnable() {
                 @Override
@@ -68,5 +67,5 @@ public class MainView {
                 }
             }
         );
-    }
+    }*/
 }

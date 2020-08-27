@@ -1,6 +1,5 @@
 package org.academiadecodigo.felinux.View;
 
-import org.academiadecodigo.felinux.GameObjects.map.Map;
 import org.academiadecodigo.felinux.GameObjects.map.Purgatory;
 import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 
@@ -17,23 +16,33 @@ public class PurgatoryView extends View{
     }
 
     @Override
-    public void init() {
+    public void init(HighnessMeter hm) {
 
-        while(player.isAlive() || activeMap == PURGATORY) {
+        while(player.isAlive() && activeMap == PURGATORY) {
 
             if (HighnessMeter.meter > 75) {
+
+                background.setHighEffect();
             } else {
                 background.setHighEffect();
             }
 
             if (firstTime) {
                 imageMap.draw();
+                player.getImage().draw();
                 firstTime = false;
             }
 
 
+            hm.animate();
             map.animate();
             player.move();
+
+            try {
+                Thread.sleep(30);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
