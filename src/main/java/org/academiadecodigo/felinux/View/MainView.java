@@ -1,8 +1,10 @@
 package org.academiadecodigo.felinux.View;
 
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
+import org.academiadecodigo.felinux.View.extras.Background;
+import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 import org.academiadecodigo.felinux.controller.PlayerKeyboard;
-import org.academiadecodigo.felinux.map.Purgatory;
+import org.academiadecodigo.felinux.GameObjects.map.Purgatory;
 import org.academiadecodigo.felinux.sound.Music;
 
 import java.util.concurrent.ExecutorService;
@@ -23,7 +25,8 @@ public class MainView {
         PlayerKeyboard keyboard = new PlayerKeyboard(dorothy);
 
         //TODO criar classe for purgatory
-        final Purgatory purgatory = new Purgatory();
+        final PurgatoryView purgatory = new PurgatoryView();
+        purgatory.setPlayer(dorothy);
         final HighnessMeter highnessMeter = new HighnessMeter();
 
         /**
@@ -40,8 +43,8 @@ public class MainView {
                         } else {
                             background.setHighEffect();
                         }
-                        purgatory.draw();
-                        purgatory.animate();
+                        purgatory.init();
+                        //purgatory.animate();
                         //map.draw();
                         dorothy.move();
                         highnessMeter.animate();

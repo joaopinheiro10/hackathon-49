@@ -13,11 +13,11 @@ public class Music {
     }
 
     public void play(boolean fromStart) {
-
+/*
         if (fromStart) {
             clip.setFramePosition(1);
         }
-        clip.start();
+        clip.start();*/
     }
 
     public void stop() {
