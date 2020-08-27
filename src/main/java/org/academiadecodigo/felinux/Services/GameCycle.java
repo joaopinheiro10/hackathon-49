@@ -1,8 +1,6 @@
 package org.academiadecodigo.felinux.Services;
 
-import org.academiadecodigo.felinux.GameObjects.map.Hall;
 import org.academiadecodigo.felinux.GameObjects.map.MapType;
-import org.academiadecodigo.felinux.GameObjects.map.Purgatory;
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
 
 import org.academiadecodigo.felinux.GameObjects.model.Lion;
@@ -10,8 +8,6 @@ import org.academiadecodigo.felinux.View.Menu;
 import org.academiadecodigo.felinux.View.PurgatoryView;
 
 import org.academiadecodigo.felinux.View.*;
-
-import org.academiadecodigo.felinux.View.extras.Background;
 import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 import org.academiadecodigo.felinux.controller.PlayerKeyboard;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
@@ -37,6 +33,7 @@ public class GameCycle {
         player = new Dorothy();
         lion = new Lion();
         lion.setPlayer(player);
+        menu = new Menu();
         PlayerKeyboard keyboard = new PlayerKeyboard(player);
 
         setupRoomView();
@@ -51,13 +48,14 @@ public class GameCycle {
      */
     public void start() {
 
+        menu.init();
 
-        menu.startScreen();
+        while (!menu.isStartGame()) {
+            menu.startScreen();
+        }
+
         menu.showInstructions();
 
-
-
-        //Missing menu and Instructions
 
         mapList.get(0).init(highnessMeter, MapType.ROOM);
 

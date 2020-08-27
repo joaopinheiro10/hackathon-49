@@ -16,7 +16,7 @@ public class Menu implements KeyboardHandler {
     private Picture instructionsScreen;
 
 
-    public void MenuHandler(GameCycle gameCycle) {
+    public Menu() {
         this.keyboard = new Keyboard(this);
         this.gameCycle = gameCycle;
         this.startGame = false;
@@ -27,8 +27,6 @@ public class Menu implements KeyboardHandler {
         sKey.setKey(KeyboardEvent.KEY_S);
         sKey.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
         keyboard.addEventListener(sKey);
-        startScreen();
-        showInstructions();
 
     }
 
@@ -48,23 +46,31 @@ public class Menu implements KeyboardHandler {
 
     public void startScreen() {
 
-        menuStart = new Picture(0, 0, "resources/img/menuStart/menufinal.png");
+        menuStart = new Picture(0, 0, "/img/menuStart/menufinal.png");
         menuStart.draw();
 
     }
 
     public void showInstructions() {
-        instructionsScreen = new Picture(0, 0, "resources/img/menuStart/instructions.png");
+        instructionsScreen = new Picture(0, 0, "/img/menuStart/instructions.png");
         menuStart.delete();
         instructionsScreen.draw();
         timer();
         instructionsScreen.delete();
     }
 
+    public boolean isStartGame() {
+        return startGame;
+    }
+
+    public void setStartGame(boolean startGame) {
+        this.startGame = startGame;
+    }
+
     public void timer() {
         for (int i = 5; i > 0; i--) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(2000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

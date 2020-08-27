@@ -32,6 +32,9 @@ public class HallView extends View {
 
             if (firstTime) {
                 imageMap.draw();
+                player.setxPos(player.getPositions()[1][0]);
+                player.setyPos(player.getPositions()[1][1]);
+                player.setImage(new Picture(234, 406, "/img/chars/oldLady/OLD_IDLE_FRONT.png"));
                 player.getImage().draw();
                 hm.getMeterBar().draw();
                 hm.getRectangle().fill();
@@ -53,6 +56,9 @@ public class HallView extends View {
         imageMap.delete();
         imageMap = new Picture(50,50, activeMap.getSource());
         player.getImage().delete();
+        player.setxPos(player.getPositions()[1][0]);
+        player.setyPos(player.getPositions()[1][1]);
+        //player.setImage(new Picture(player.getPositions()[2][0], player.getPositions()[2][1]));
         hm.getRectangle().delete();
         hm.getMeterBar().delete();
     }

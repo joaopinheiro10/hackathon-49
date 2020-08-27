@@ -174,7 +174,7 @@ public class PlayerKeyboard implements KeyboardHandler {
        // }
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_K) {
-            GameCycle.activeMap = MapType.HALL;
+            GameCycle.activeMap = MapType.PURGATORY;
         }
 
 
