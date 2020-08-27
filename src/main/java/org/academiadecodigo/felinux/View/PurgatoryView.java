@@ -27,6 +27,8 @@ public class PurgatoryView extends View{
             if (firstTime) {
                 imageMap.draw();
                 player.getImage().draw();
+                hm.getMeterBar().draw();
+                hm.getRectangle().fill();
                 firstTime = false;
             }
 

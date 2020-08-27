@@ -48,5 +48,7 @@ public class RoomView extends View{
         imageMap.delete();
         imageMap = new Picture(50,50, activeMap.getSource());
         player.getImage().delete();
+        hm.getRectangle().delete();
+        hm.getMeterBar().delete();
     }
 }

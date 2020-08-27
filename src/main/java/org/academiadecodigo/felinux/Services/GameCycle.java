@@ -41,6 +41,8 @@ public class GameCycle {
      */
     public void start() {
 
+        //Missing menu and Instructions
+
         mapList.get(0).init(highnessMeter, MapType.ROOM);
 
         mapList.get(1).init(highnessMeter, MapType.HALL);
@@ -48,19 +50,9 @@ public class GameCycle {
         mapList.get(2).init(highnessMeter, activeMap);
 
         mapList.get(3).init(highnessMeter, activeMap);
-        /*menu.init();
 
-        instructions.show();
+        //Missing final scene
 
-        roomView.init();
-        if(!player.isAlive()) {
-
-            // TODO View for losing
-            System.out.println("Game Over");
-            start();
-        }
-
-        hallView.init();*/
 
     }
 
