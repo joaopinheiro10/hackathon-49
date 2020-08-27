@@ -1,7 +1,11 @@
 package org.academiadecodigo.felinux.View;
 
+import org.academiadecodigo.felinux.GameObjects.drugs.Shroom;
+import org.academiadecodigo.felinux.GameObjects.map.Map;
+import org.academiadecodigo.felinux.GameObjects.map.Purgatory;
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
 import org.academiadecodigo.felinux.View.extras.Background;
+import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 import org.academiadecodigo.felinux.controller.PlayerKeyboard;
 
 import java.util.concurrent.ExecutorService;
@@ -24,6 +28,7 @@ public class MainView {
         //TODO criar classe for purgatory
         final Purgatory purgatory = new Purgatory();
         final HighnessMeter highnessMeter = new HighnessMeter();
+        final Shroom shroom = new Shroom(purgatory);
 
         *//**
          * Game Loop
@@ -35,10 +40,10 @@ public class MainView {
 
                     while (true) {
 
-                        if (highnessMeter.getMeter() >= 195) {
+                        if (highnessMeter.meter >= 195) {
 
                             //CRIAR VELHA
-                        } else if(highnessMeter.getMeter() <= 65 ){
+                        } else if(highnessMeter.meter <= 65 ){
 
                             //CRIAR NOVA
                         } else{
@@ -51,6 +56,7 @@ public class MainView {
                         //map.draw();
                         dorothy.move();
                         highnessMeter.animate();
+                        shroom.spawnShroom();
 
                         try {
                             Thread.sleep(30);

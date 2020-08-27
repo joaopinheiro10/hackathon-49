@@ -8,7 +8,6 @@ public abstract class Map {
 
     private MapType currentMap;
 
-
     public Map(MapType currentMap) {
         this.currentMap = currentMap;
     }

@@ -1,5 +1,7 @@
 package org.academiadecodigo.felinux.controller;
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
+import org.academiadecodigo.felinux.View.extras.HighnessMeter;
+import org.academiadecodigo.felinux.tools.DirectionType;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -14,6 +16,7 @@ public class PlayerKeyboard implements KeyboardHandler {
     private Keyboard keyboard;
     private Dorothy player;
     private float moveSpeed = 3f;
+    private DirectionType lastDirection = OLD_FRONT;
 
 
     public PlayerKeyboard(Dorothy player){
@@ -135,26 +138,50 @@ public class PlayerKeyboard implements KeyboardHandler {
         player.setDy(0);
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_A||keyboardEvent.getKey() == KeyboardEvent.KEY_LEFT){
-            player.setDx(player.getDx()-moveSpeed);;
-            player.setDirection(LEFT);
+            player.setDx(player.getDx()-moveSpeed);
+            if(HighnessMeter.meter >= 195){
+                lastDirection = GIRL_LEFT;
+            }
+            if(HighnessMeter.meter <= 65){
+                lastDirection = OLD_LEFT;
+            }
+            player.setDirection(lastDirection);
             player.setIdle(false);
         }
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_D||keyboardEvent.getKey() == KeyboardEvent.KEY_RIGHT){
-            player.setDx(player.getDx()+moveSpeed);;
-            player.setDirection(RIGHT);
+            player.setDx(player.getDx()+moveSpeed);
+            if(HighnessMeter.meter >= 195){
+                lastDirection = GIRL_RIGHT;
+            }
+            if(HighnessMeter.meter <= 65){
+                lastDirection = OLD_RIGHT;
+            }
+            player.setDirection(lastDirection);
             player.setIdle(false);
         }
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_W||keyboardEvent.getKey() == KeyboardEvent.KEY_UP){
-            player.setDy(player.getDy()-moveSpeed);;
-            player.setDirection(FRONT);
+            player.setDy(player.getDy()-moveSpeed);
+            if(HighnessMeter.meter >= 195){
+                lastDirection = GIRL_FRONT;
+            }
+            if(HighnessMeter.meter <= 65){
+                lastDirection = OLD_FRONT;
+            }
+            player.setDirection(lastDirection);
             player.setIdle(false);
         }
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_S||keyboardEvent.getKey() == KeyboardEvent.KEY_DOWN){
-            player.setDy(player.getDy()+moveSpeed);;
-            player.setDirection(BACK);
+            player.setDy(player.getDy()+moveSpeed);
+            if(HighnessMeter.meter >= 195){
+                lastDirection = GIRL_BACK;
+            }
+            if(HighnessMeter.meter <= 65){
+                lastDirection = OLD_BACK;
+            }
+            player.setDirection(lastDirection);
             player.setIdle(false);
         }
 
