@@ -27,7 +27,7 @@ public class HighnessMeter {
 
     public void animate() {
 
-        if(counter<=15){
+        if(counter<=1){
             counter++;
             return;
         }
