@@ -36,10 +36,17 @@ public class MainView {
 
                     while (true) {
 
-                        if (dorothy.getHighnessLevel() > 75) {
-                        } else {
-                            background.setHighEffect();
+                        if (highnessMeter.getMeter() >= 195) {
+
+                            //CRIAR VELHA
+                        } else if(highnessMeter.getMeter() <= 65 ){
+
+                            //CRIAR NOVA
+                        } else{
+                            //VELHA
                         }
+
+                        background.setHighEffect();
                         purgatory.draw();
                         purgatory.animate();
                         //map.draw();
