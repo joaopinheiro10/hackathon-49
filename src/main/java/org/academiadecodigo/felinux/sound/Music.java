@@ -1,48 +1,45 @@
 package org.academiadecodigo.felinux.sound;
 
-import javax.sound.sampled.*;
-import java.io.*;
-import java.net.URL;
+import org.academiadecodigo.felinux.View.extras.HighnessMeter;
+
+
 
 public class Music {
-    private Clip clip;
-    private URL soundURL;
 
-    public Music(String path) {
-        initClip(path);
-    }
+    private Sound sound;
 
-    public void play(boolean fromStart) {
 
-        if (fromStart) {
-            clip.setFramePosition(1);
+    public void play() {
+
+
+        if (HighnessMeter.meter() <= 65) {
+            sound = new Sound(SoundEffect.DEPRESSED.soundPath);
         }
-        clip.start();
-    }
 
-    public void stop() {
-        clip.stop();
-    }
-
-    private void initClip(String path) {
-
-        soundURL = Music.class.getResource(path); //if loading from jar
-        AudioInputStream inputStream = null;
-
-        try {
-
-            if (soundURL == null) {
-                path = path.substring(1);
-                File file = new File(path);
-                soundURL = file.toURI().toURL(); //if executing on intellij
-            }
-
-            inputStream = AudioSystem.getAudioInputStream(soundURL);
-            clip = AudioSystem.getClip();
-            clip.open(inputStream);
-
-        } catch (UnsupportedAudioFileException | LineUnavailableException | IOException ex) {
+        if (HighnessMeter.meter() >= 65 && HighnessMeter.meter() <= 195){
+            sound = new Sound(SoundEffect.NORMAL.soundPath);
 
         }
+
+        if (HighnessMeter.meter() >= 195) {
+            sound = new Sound(SoundEffect.HIGH.soundPath);
+        }
+
+        }
+
     }
+
+    enum SoundEffect {
+
+        DEPRESSED("/resources/sounds/Depressed_Somewhere_Over_the_Rainbow_OLD.mp3"),
+        HIGH("/resources/sounds/High_Somewhere_Over_the_Rainbow_OLD.mp3"),
+        NORMAL("/resources/sounds/Somewhere_Over_the_Rainbow_OLD.mp3");
+
+        public String soundPath;
+
+        SoundEffect(String soundPath) {
+            this.soundPath = soundPath;
+        }
+
+
 }

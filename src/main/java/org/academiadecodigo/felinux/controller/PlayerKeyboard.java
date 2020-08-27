@@ -185,9 +185,9 @@ public class PlayerKeyboard implements KeyboardHandler {
             player.setIdle(false);
         }
 
-        if(keyboardEvent.getKey() == KeyboardEvent.KEY_E){
-            player.interact();
-        }
+       // if(keyboardEvent.getKey() == KeyboardEvent.KEY_E){
+       //     player.interact();
+       // }
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_SPACE){
 
@@ -216,15 +216,6 @@ public class PlayerKeyboard implements KeyboardHandler {
             player.setDy(0f);
             player.setIdle(true);
         }
-    }
-
-    //Might be needed for Spring
-
-    public Dorothy getPlayer() {
-        return player;
-    }
-    public void setPlayer(Dorothy player) {
-        this.player = player;
     }
 }
 

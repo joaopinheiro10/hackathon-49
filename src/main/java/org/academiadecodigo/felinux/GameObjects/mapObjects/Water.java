@@ -14,26 +14,24 @@ public class Water extends GameObject {
 
     }
 
-    /**
-     * Creates movement for water
-     */
     public void animate(){
 
-        if(counter == 0) {
-            image.draw();
-        }
-
+        this.image.delete();
         counter++;
-
-        if(counter >= 9){
+        if(counter == 9){
             counter = 1;
-            image.delete();
             image = new Picture(480,240, "/img/element/water/water_" + counter + ".png");
             image.draw();
             return;
         }
+        image = new Picture(480,284, "/img/element/water/water_" + counter + ".png");
+        image.draw();
+    }
 
-        image.load("/img/element/water/water_" + counter + ".png");
+    /**
+     * Creates movement for water
+     */
+
 
     }
-}
+
