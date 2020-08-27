@@ -1,30 +1,28 @@
 package org.academiadecodigo.felinux.sound;
 
-import org.academiadecodigo.felinux.View.HighnessMeter;
+import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 
-import javax.sound.sampled.Clip;
 
 
 public class Music {
 
-    private Clip clip;
+    private Sound sound;
 
 
+    public void play() {
 
-    public void play(HighnessMeter highnessMeter, SoundEffect soundEffect) {
 
-
-        if (highnessMeter.getMeter() <= 65) {
-            play(highnessMeter, SoundEffect.DEPRESSED);
+        if (HighnessMeter.meter() <= 65) {
+            sound = new Sound(SoundEffect.DEPRESSED.soundPath);
         }
 
-        if (highnessMeter.getMeter() >= 65 && <= 195){
-            play(highnessMeter, SoundEffect.NORMAL);
+        if (HighnessMeter.meter() >= 65 && HighnessMeter.meter() <= 195){
+            sound = new Sound(SoundEffect.NORMAL.soundPath);
 
         }
 
-        if (highnessMeter.getMeter() >= 195) {
-            play(highnessMeter, SoundEffect.HIGH);
+        if (HighnessMeter.meter() >= 195) {
+            sound = new Sound(SoundEffect.HIGH.soundPath);
         }
 
         }

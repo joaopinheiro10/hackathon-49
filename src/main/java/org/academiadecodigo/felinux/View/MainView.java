@@ -1,10 +1,9 @@
 package org.academiadecodigo.felinux.View;
 
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
+import org.academiadecodigo.felinux.View.extras.Background;
 import org.academiadecodigo.felinux.controller.PlayerKeyboard;
-import org.academiadecodigo.felinux.map.Purgatory;
-import org.academiadecodigo.felinux.sound.Music;
-import org.academiadecodigo.felinux.View.HighnessMeter;
+
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
