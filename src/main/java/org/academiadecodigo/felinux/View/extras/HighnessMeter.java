@@ -73,11 +73,11 @@ public class HighnessMeter {
     public int getMeter() {
         return meter;
     }
-    public Map<String, Integer> getHighness() {
+    /*public Map<String, Integer> getHighness() {
         return highness;
     }
 
-    public int getMeter() {
+    /*public int getMeter() {
         return meter;
-    }
+    }*/
 }

@@ -4,6 +4,7 @@ import org.academiadecodigo.felinux.GameObjects.map.Room;
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
 import static org.academiadecodigo.felinux.GameObjects.map.MapType.*;
 import static org.academiadecodigo.felinux.Services.GameCycle.activeMap;
+import static org.academiadecodigo.felinux.Services.GameCycle.imageMap;
 
 public class RoomView extends View{
 
@@ -19,8 +20,13 @@ public class RoomView extends View{
 
         while(player.isAlive() && activeMap == ROOM) {
 
+            if (highnessMeter.getMeter() > 75) {
+            } else {
+                background.setHighEffect();
+            }
+
             if (firstTime) {
-                map.draw();
+                imageMap.load(activeMap.getSource());
                 firstTime = false;
             }
 
@@ -28,5 +34,6 @@ public class RoomView extends View{
             player.move();
         }
 
+        activeMap = HALL;
     }
 }

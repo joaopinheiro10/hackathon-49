@@ -20,7 +20,6 @@ public abstract class View {
     public View(Map map) {
         this.map = map;
         this.firstTime = true;
-        background = new Background();
     }
 
     /**
@@ -49,5 +48,9 @@ public abstract class View {
 
     public void setHighnessMeter(HighnessMeter highnessMeter) {
         this.highnessMeter = highnessMeter;
+    }
+
+    public void setBackground(Background background) {
+        this.background = background;
     }
 }

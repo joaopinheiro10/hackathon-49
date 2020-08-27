@@ -14,6 +14,8 @@ public class GameCycle {
     private Dorothy player;
     public static MapType activeMap = MapType.PURGATORY;
     public static Picture imageMap = new Picture(50,50, activeMap.getSource());
+    private PurgatoryView purgatoryView;
+    private HighnessMeter highnessMeter;
 
 
     public GameCycle() {
@@ -22,10 +24,12 @@ public class GameCycle {
 
     public void setupGame() {
         PlayerKeyboard keyboard = new PlayerKeyboard(player);
-        HighnessMeter highnessMeter = new HighnessMeter();
-        PurgatoryView purgatoryView = new PurgatoryView();
+        Background background = new Background();
+        highnessMeter = new HighnessMeter();
+        purgatoryView = new PurgatoryView();
         purgatoryView.setPlayer(player);
         purgatoryView.setHighnessMeter(highnessMeter);
+        purgatoryView.setBackground(background);
     }
 
     /**
@@ -33,7 +37,6 @@ public class GameCycle {
      */
     public void start() {
 
-        PurgatoryView purgatoryView = new PurgatoryView();
 
         purgatoryView.init();
         /*menu.init();

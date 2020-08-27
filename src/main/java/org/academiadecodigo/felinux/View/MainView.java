@@ -2,9 +2,6 @@ package org.academiadecodigo.felinux.View;
 
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
 import org.academiadecodigo.felinux.controller.PlayerKeyboard;
-import org.academiadecodigo.felinux.map.Purgatory;
-import org.academiadecodigo.felinux.sound.Music;
-import org.academiadecodigo.felinux.View.HighnessMeter;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -12,10 +9,10 @@ import java.util.concurrent.Executors;
 public class MainView {
 
     public MainView(){
-        startGame();
+        //startGame();
     }
 
-    public void startGame(){
+    /*public void startGame(){
        // Music music = new Music("/sounds/Depressed_Somewhere_Over_the_Rainbow_OLD_WAV.mp3");
         //music.play(true);
         ExecutorService executorService = Executors.newSingleThreadExecutor();
@@ -27,9 +24,9 @@ public class MainView {
         final Purgatory purgatory = new Purgatory();
         final HighnessMeter highnessMeter = new HighnessMeter();
 
-        /**
+        *//**
          * Game Loop
-         */
+         *//*
         executorService.execute(
             new Runnable() {
                 @Override
@@ -63,5 +60,5 @@ public class MainView {
                 }
             }
         );
-    }
+    }*/
 }

@@ -20,13 +20,13 @@ public class PurgatoryView extends View{
 
         while(player.isAlive() || activeMap == PURGATORY) {
 
-            if (HighnessMeter.meter > 75) {
+            if (highnessMeter.getMeter() > 75) {
             } else {
                 background.setHighEffect();
             }
 
             if (firstTime) {
-                imageMap.draw();
+                imageMap.load(activeMap.getSource());
                 firstTime = false;
             }
 
