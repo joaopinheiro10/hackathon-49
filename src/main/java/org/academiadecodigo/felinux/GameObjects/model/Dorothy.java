@@ -14,6 +14,7 @@ public class Dorothy extends AbstractModel {
     private boolean idle;
     private DirectionType prevDirection;
     private String lastSprite = "/img/chars/oldLady/OLD_IDLE_FRONT.png";
+    private boolean decision;
 
 
     public Dorothy() {
@@ -101,6 +102,9 @@ public class Dorothy extends AbstractModel {
 
         return Math.sqrt(Math.pow((xA-xB),2)+Math.pow((yA-yB),2));
     }
+    public void setDecision(boolean decision) {
+        this.decision = decision;
+    }
 
     public int getMoveCounter() {
         return moveCounter;
@@ -122,3 +126,5 @@ public class Dorothy extends AbstractModel {
         return prevDirection;
     }
 }
+
+
