@@ -62,11 +62,13 @@ public class Dorothy extends AbstractModel {
         int[] position = {
                 super.image.getX(),super.image.getY()
         };
+        Picture imageToDelete = null;
 
         if(idle || talking){
-            super.image.delete();
-            this.image = new Picture(position[0],position[1],genIdleImage(direction));
+            imageToDelete = super.image;
+            super.image = new Picture(position[0],position[1],genIdleImage(direction));
             image.draw();
+            imageToDelete.delete();
             return;
         }
 
@@ -78,7 +80,7 @@ public class Dorothy extends AbstractModel {
             moveCounter++;
         }
 
-        Picture imageToDelete = super.image;
+        imageToDelete = super.image;
         super.image = new Picture(position[0]+dx,position[1]+dy,super.direction.getImage(moveCounter));
         super.image.draw();
         imageToDelete.delete();
