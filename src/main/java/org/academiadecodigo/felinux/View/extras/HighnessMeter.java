@@ -16,6 +16,7 @@ public class HighnessMeter {
 
     private Picture meterBar = new Picture(5, 20 + 465, "/meter/meter.png");
     private Rectangle rectangle = new Rectangle(109, 73 + 465, meter, 36);
+    private int counter;
 
     private boolean goingRight = false;
 
@@ -25,6 +26,14 @@ public class HighnessMeter {
     }
 
     public void animate() {
+
+        if(counter<=15){
+            counter++;
+            return;
+        }
+
+        counter = 0;
+
         if (meter > 259) {
             goingRight = false;
         } else if (meter <= 0) {

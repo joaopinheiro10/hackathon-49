@@ -19,17 +19,15 @@ public class GameCycle {
 
 
     public GameCycle() {
-        player = new Dorothy();
     }
 
     public void setupGame() {
-        PlayerKeyboard keyboard = new PlayerKeyboard(player);
         Background background = new Background();
         highnessMeter = new HighnessMeter();
         purgatoryView = new PurgatoryView();
+        player = new Dorothy();
+        PlayerKeyboard keyboard = new PlayerKeyboard(player);
         purgatoryView.setPlayer(player);
-        purgatoryView.setHighnessMeter(highnessMeter);
-        purgatoryView.setBackground(background);
     }
 
     /**
@@ -37,8 +35,7 @@ public class GameCycle {
      */
     public void start() {
 
-
-        purgatoryView.init();
+        purgatoryView.init(highnessMeter);
         /*menu.init();
 
         instructions.show();
