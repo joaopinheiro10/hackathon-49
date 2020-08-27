@@ -29,6 +29,7 @@ public class AtriumView extends View {
 
             if (firstTime) {
                 imageMap.draw();
+                player.setImage(new Picture(542, 342, "/img/chars/oldLady/OLD_IDLE_FRONT.png"));
                 player.getImage().draw();
                 hm.getMeterBar().draw();
                 hm.getRectangle().fill();
@@ -50,6 +51,8 @@ public class AtriumView extends View {
         imageMap.delete();
         imageMap = new Picture(50,50, activeMap.getSource());
         player.getImage().delete();
+        player.setxPos(player.getPositions()[3][0]);
+        player.setyPos(player.getPositions()[3][1]);
         hm.getRectangle().delete();
         hm.getMeterBar().delete();
     }

@@ -3,6 +3,7 @@ package org.academiadecodigo.felinux.View;
 import org.academiadecodigo.felinux.GameObjects.map.MapType;
 import org.academiadecodigo.felinux.GameObjects.map.Purgatory;
 import org.academiadecodigo.felinux.View.extras.HighnessMeter;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import static org.academiadecodigo.felinux.Services.GameCycle.activeMap;
 import static org.academiadecodigo.felinux.Services.GameCycle.imageMap;
@@ -26,6 +27,7 @@ public class PurgatoryView extends View{
 
             if (firstTime) {
                 imageMap.draw();
+                player.setImage(new Picture(602, 442, "/img/chars/oldLady/OLD_IDLE_FRONT.png"));
                 player.getImage().draw();
                 hm.getMeterBar().draw();
                 hm.getRectangle().fill();

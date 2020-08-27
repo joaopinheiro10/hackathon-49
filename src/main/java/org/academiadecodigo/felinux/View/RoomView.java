@@ -32,7 +32,7 @@ public class RoomView extends View{
 
                 Room room = (Room) super.map;
                 room.spawnItems();
-
+                player.setImage(new Picture(250,250,"/img/chars/oldLady/OLD_IDLE_FRONT.png"));
                 player.getImage().draw();
                 firstTime = false;
             }
@@ -55,6 +55,9 @@ public class RoomView extends View{
         imageMap.delete();
         imageMap = new Picture(50,50, activeMap.getSource());
         player.getImage().delete();
+        player.setxPos(player.getPositions()[1][0]);
+        player.setyPos(player.getPositions()[1][1]);
+        //player.setImage(new Picture(player.getPositions()[1][0], player.getPositions()[1][1], "/img/chars/girl/IDLE_FRONT.png"));
         hm.getRectangle().delete();
         hm.getMeterBar().delete();
     }
