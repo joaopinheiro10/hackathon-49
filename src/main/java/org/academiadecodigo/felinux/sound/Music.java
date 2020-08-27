@@ -12,16 +12,16 @@ public class Music {
     public void play() {
 
 
-        if (HighnessMeter.meter() <= 65) {
+        if (HighnessMeter.meter <= 65) {
             sound = new Sound(SoundEffect.DEPRESSED.soundPath);
         }
 
-        if (HighnessMeter.meter() >= 65 && HighnessMeter.meter() <= 195){
+        if (HighnessMeter.meter >= 65 && HighnessMeter.meter <= 195){
             sound = new Sound(SoundEffect.NORMAL.soundPath);
 
         }
 
-        if (HighnessMeter.meter() >= 195) {
+        if (HighnessMeter.meter >= 195) {
             sound = new Sound(SoundEffect.HIGH.soundPath);
         }
 

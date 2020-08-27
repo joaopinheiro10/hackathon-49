@@ -1,7 +1,8 @@
 package org.academiadecodigo.felinux.GameObjects.drugs;
 
 import org.academiadecodigo.felinux.GameObjects.GameObject;
-import org.academiadecodigo.felinux.map.Map;
+import org.academiadecodigo.felinux.GameObjects.map.Map;
+import org.academiadecodigo.felinux.Services.GameCycle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public class Shroom extends GameObject {
@@ -25,11 +26,11 @@ public class Shroom extends GameObject {
         }
         shroomCounter++;
 
-        int mapMinX = currentMap.getImage().getX();
-        int mapMinY = currentMap.getImage().getY();
+        int mapMinX = GameCycle.imageMap.getX();
+        int mapMinY = GameCycle.imageMap.getY();
 
-        int mapMaxX = currentMap.getImage().getMaxX();
-        int mapMaxY = currentMap.getImage().getMaxY();
+        int mapMaxX = GameCycle.imageMap.getMaxX();
+        int mapMaxY = GameCycle.imageMap.getMaxY();
 
         int randomPosX = (int) Math.floor(Math.random() * mapMaxX);
         int randomPosY = (int) Math.floor(Math.random() * mapMaxY);

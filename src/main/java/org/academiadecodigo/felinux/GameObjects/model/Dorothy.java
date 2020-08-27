@@ -1,6 +1,7 @@
 package org.academiadecodigo.felinux.GameObjects.model;
 
-import org.academiadecodigo.felinux.View.HighnessMeter;
+import org.academiadecodigo.felinux.View.extras.HighnessMeter;
+import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 import org.academiadecodigo.felinux.tools.DirectionType;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 

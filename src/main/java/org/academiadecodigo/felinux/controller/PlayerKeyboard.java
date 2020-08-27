@@ -1,6 +1,6 @@
 package org.academiadecodigo.felinux.controller;
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
-import org.academiadecodigo.felinux.View.HighnessMeter;
+import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 import org.academiadecodigo.felinux.tools.DirectionType;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;

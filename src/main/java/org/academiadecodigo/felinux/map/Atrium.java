@@ -1,7 +1,9 @@
 package org.academiadecodigo.felinux.map;
-import static org.academiadecodigo.felinux.map.MapType.*;
+import org.academiadecodigo.felinux.GameObjects.map.Map;
 
-public class Atrium extends Map{
+import static org.academiadecodigo.felinux.GameObjects.map.MapType.*;
+
+public class Atrium extends Map {
 
     public Atrium() {
         super(ATRIUM);

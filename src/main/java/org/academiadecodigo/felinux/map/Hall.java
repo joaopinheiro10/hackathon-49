@@ -1,5 +1,7 @@
 package org.academiadecodigo.felinux.map;
-import static org.academiadecodigo.felinux.map.MapType.*;
+import org.academiadecodigo.felinux.GameObjects.map.Map;
+
+import static org.academiadecodigo.felinux.GameObjects.map.MapType.*;
 
 
 public class Hall extends Map {
