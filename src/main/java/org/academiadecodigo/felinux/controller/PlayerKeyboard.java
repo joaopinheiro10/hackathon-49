@@ -1,7 +1,5 @@
 package org.academiadecodigo.felinux.controller;
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
-import org.academiadecodigo.felinux.View.extras.HighnessMeter;
-import org.academiadecodigo.felinux.tools.DirectionType;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
@@ -16,7 +14,6 @@ public class PlayerKeyboard implements KeyboardHandler {
     private Keyboard keyboard;
     private Dorothy player;
     private float moveSpeed = 3f;
-    private DirectionType lastDirection = OLD_FRONT;
 
 
     public PlayerKeyboard(Dorothy player){
