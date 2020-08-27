@@ -5,9 +5,6 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
-import static org.academiadecodigo.felinux.tools.DirectionType.LEFT;
-import static org.academiadecodigo.felinux.tools.DirectionType.RIGHT;
-
 public class Menu implements KeyboardHandler {
 
     private Keyboard keyboard;

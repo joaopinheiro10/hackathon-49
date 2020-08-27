@@ -12,7 +12,7 @@ public class HighnessMeter {
 
     //MIN = 0     MAX = 260
     //25% = 65 ;  50% = 130   ;   75% = 195
-    private int meter = 260;
+    public static int meter = 260;
 
     private Picture meterBar = new Picture(5,20 + 465,"/meter/meter.png");
     private Rectangle rectangle = new Rectangle(109, 73 + 465, meter, 36);
@@ -52,7 +52,7 @@ public class HighnessMeter {
         else if( meter > 165){
             rectangle.setColor(new Color(250,27,27));
         }
-
+        //TODO era fixe meter uma threadSleep aqui para por o meter mais lento
         if (goingRight) {
             this.rectangle.translate(1, 0);
             this.rectangle.grow(1,0);

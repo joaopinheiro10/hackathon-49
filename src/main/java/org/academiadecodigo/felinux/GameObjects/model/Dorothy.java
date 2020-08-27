@@ -13,11 +13,12 @@ public class Dorothy extends AbstractModel {
     private int moveCounter;
     private boolean idle;
     private DirectionType prevDirection;
+    private String lastSprite = "/img/chars/oldLady/IDLE_FRONT_1.png";
 
 
     public Dorothy() {
-        this.prevDirection = DirectionType.BACK;
-        direction = DirectionType.BACK;
+        this.prevDirection = DirectionType.GIRL_BACK;
+        direction = DirectionType.GIRL_BACK;
         alive = true;
         image = new Picture(250,250, "img/chars/girl/IDLE_FRONT_1.png");
         idle = true;
@@ -56,11 +57,11 @@ public class Dorothy extends AbstractModel {
                 super.image.getX(),super.image.getY()
         };
         Picture imageToDelete = null;
-        System.out.println(super.image.getX() + " "+super.image.getY());
+        //System.out.println(super.image.getX() + " "+super.image.getY());
 
         if(idle || talking){
             imageToDelete = super.image;
-            super.image = new Picture(position[0],position[1],genIdleImage(direction));
+            super.image = new Picture(position[0], position[1], genIdleImage(direction));
             image.draw();
             imageToDelete.delete();
             return;
@@ -75,7 +76,7 @@ public class Dorothy extends AbstractModel {
         }
 
         imageToDelete = super.image;
-        super.image = new Picture(position[0]+dx,position[1]+dy,super.direction.getImage(moveCounter));
+        super.image = new Picture(position[0]+dx,position[1]+dy, super.direction.getImage(moveCounter));
         super.image.draw();
         imageToDelete.delete();
 
@@ -88,8 +89,15 @@ public class Dorothy extends AbstractModel {
     public void interact() {}
 
     private String genIdleImage(DirectionType cdirection){
-
-        return "/img/chars/girl/IDLE_"+ cdirection +"_1.png";
+        if(HighnessMeter.meter >= 195){
+            lastSprite = "/img/chars/girl/IDLE_"+ cdirection +"_1.png";
+            return lastSprite;
+        }
+        if(HighnessMeter.meter <= 65){
+            lastSprite = "/img/chars/oldLady/IDLE_FRONT_1.png";
+            return lastSprite;
+        }
+        return lastSprite;
     }
 
     public int getMoveCounter() {

@@ -8,7 +8,6 @@ public abstract class Map extends GameObject {
 
     private MapType currentMap;
 
-
     public Map(MapType currentMap) {
         this.currentMap = currentMap;
         image = new Picture(50,50, currentMap.getSource());
