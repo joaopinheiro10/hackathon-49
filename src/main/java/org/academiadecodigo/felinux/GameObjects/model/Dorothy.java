@@ -62,7 +62,6 @@ public class Dorothy extends AbstractModel {
         int[] position = {
                 super.image.getX(),super.image.getY()
         };
-        System.out.println(super.image.getX()+" "+super.image.getY());
         Picture imageToDelete = null;
 
         if(idle || talking){
