@@ -25,7 +25,6 @@ public class GameCycle {
     }
 
     public void setupGame() {
-        Background background = new Background();
         highnessMeter = new HighnessMeter();
         player = new Dorothy();
         PlayerKeyboard keyboard = new PlayerKeyboard(player);
