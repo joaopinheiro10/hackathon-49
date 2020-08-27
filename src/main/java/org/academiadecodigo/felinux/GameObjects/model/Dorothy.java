@@ -93,8 +93,33 @@ public class Dorothy extends AbstractModel {
 
     /**
      * Interacts with random objects
+     * @param player receives the player image (Picture)
+     * @param interactable receives the interactable object image (Picture)
      */
-    public void interact() {}
+    public boolean interact(Picture player, Picture interactable) {
+
+        int xA = ((player.getX())*2+player.getWidth())/2;
+        int yA = ((player.getY())*2+player.getHeight())/2;
+
+        int xB = (interactable.getX()*2+interactable.getWidth())/2;
+        int yB = (interactable.getY()*2+interactable.getHeight())/2;
+
+        int distance = ( interactable.getWidth()+player.getWidth() )/2;
+        return getDistance(xA,yA,xB,yB)<=distance;
+    }
+    /**
+     * Almighty God, calculator of distance, ruler of the maths
+     * Aka DONT TOUCH
+     * @param xA
+     * @param yA
+     * @param xB
+     * @param yB
+     * @return the distance between 2 points
+     */
+    private static double getDistance(double xA, double yA, double xB, double yB){
+
+        return Math.sqrt(Math.pow((xA-xB),2)+Math.pow((yA-yB),2));
+    }
 
     private String genIdleImage(DirectionType cdirection){
 
