@@ -45,7 +45,11 @@ public class GameCycle {
 
         mapList.get(0).init(highnessMeter, activeMap);
 
-        mapList.get(1).init(highnessMeter, activeMap);
+        mapList.get(1).init(highnessMeter, MapType.HALL);
+
+        mapList.get(2).init(highnessMeter, activeMap);
+
+        mapList.get(3).init(highnessMeter, activeMap);
         /*menu.init();
 
         instructions.show();
