@@ -1,9 +1,8 @@
 package org.academiadecodigo.felinux.Services;
 
-import javassist.Translator;
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
 import org.academiadecodigo.felinux.map.MapType;
-import org.academiadecodigo.felinux.view.Menu;
+import org.academiadecodigo.felinux.View.Menu;
 
 public class GameCycle {
 

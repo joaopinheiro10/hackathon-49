@@ -1,4 +1,4 @@
-package org.academiadecodigo.felinux.view;
+package org.academiadecodigo.felinux.View;
 
 import org.academiadecodigo.felinux.Services.GameCycle;
 import org.academiadecodigo.simplegraphics.keyboard.Keyboard;

@@ -1,7 +1,7 @@
 package org.academiadecodigo.felinux.sound;
 
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
-import org.academiadecodigo.felinux.view.HighnessMeter;
+import org.academiadecodigo.felinux.View.HighnessMeter;
 import javax.sound.sampled.*;
 import java.io.*;
 import java.net.URL;
@@ -17,12 +17,23 @@ public class Music {
 
 
 
-    public void play(Dorothy player, HighnessMeter) {
+    public void play(Dorothy player, HighnessMeter highnessMeter, SoundEffect soundEffect) {
 
-        if (.getHighnessLevel() > 75) {
-        } else {
-            background.setHighEffect();
 
+
+        if (highnessMeter.getMeter() <= 65) {
+
+        }
+
+
+        if(highnessMeter.getMeter() >= 65 && <= 195) {
+
+
+        }
+
+        if(highnessMeter.getMeter() >=195) {
+
+        }
     }
 
     }
@@ -38,6 +49,6 @@ public class Music {
         SoundEffect(String soundPath) {
             this.soundPath = soundPath;
         }
-    }
+
 
 }
