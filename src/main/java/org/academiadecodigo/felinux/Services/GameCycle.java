@@ -46,12 +46,11 @@ public class GameCycle {
      * While player is alive, game is looping
      */
     public void start() {
-
-
+        /*
         menu.startScreen();
         menu.showInstructions();
 
-
+*/
 
         //Missing menu and Instructions
 
