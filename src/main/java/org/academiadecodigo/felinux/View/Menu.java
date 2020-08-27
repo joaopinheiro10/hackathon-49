@@ -18,7 +18,6 @@ public class Menu implements KeyboardHandler {
 
     public Menu() {
         this.keyboard = new Keyboard(this);
-        this.gameCycle = gameCycle;
         this.startGame = false;
     }
 
