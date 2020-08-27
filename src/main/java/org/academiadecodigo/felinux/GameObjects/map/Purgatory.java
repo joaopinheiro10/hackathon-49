@@ -1,4 +1,5 @@
 package org.academiadecodigo.felinux.GameObjects.map;
+import org.academiadecodigo.felinux.GameObjects.drugs.Shroom;
 import org.academiadecodigo.felinux.GameObjects.mapObjects.Fire;
 import org.academiadecodigo.felinux.GameObjects.mapObjects.Water;
 
@@ -13,10 +14,12 @@ public class Purgatory extends Map{
         super(PURGATORY);
         fire = new Fire();
         water = new Water();
+        purgatoryShrooms = new Shroom(this);
     }
 
     public void animate() {
         fire.animate();
         water.animate();
+        purgatoryShrooms.spawnShroom();
     }
 }

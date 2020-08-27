@@ -1,13 +1,15 @@
 package org.academiadecodigo.felinux.GameObjects.map;
 
 import org.academiadecodigo.felinux.GameObjects.GameObject;
+import org.academiadecodigo.felinux.GameObjects.drugs.Shroom;
 import org.academiadecodigo.felinux.Services.GameCycle;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 public abstract class Map {
 
     private MapType currentMap;
-
+    protected Shroom purgatoryShrooms;
+    protected Shroom roomShroom;
     public Map(MapType currentMap) {
         this.currentMap = currentMap;
     }
