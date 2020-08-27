@@ -1,11 +1,10 @@
 package org.academiadecodigo.felinux.View;
 
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
-import org.academiadecodigo.felinux.View.extras.Background;
-import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 import org.academiadecodigo.felinux.controller.PlayerKeyboard;
-import org.academiadecodigo.felinux.GameObjects.map.Purgatory;
+import org.academiadecodigo.felinux.map.Purgatory;
 import org.academiadecodigo.felinux.sound.Music;
+import org.academiadecodigo.felinux.View.HighnessMeter;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -17,16 +16,15 @@ public class MainView {
     }
 
     public void startGame(){
-        Music music = new Music("/sounds/Depressed_Somewhere_Over_the_Rainbow_OLD_WAV.mp3");
-        music.play(true);
+       // Music music = new Music("/sounds/Depressed_Somewhere_Over_the_Rainbow_OLD_WAV.mp3");
+        //music.play(true);
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         final Background background = new Background();
         final Dorothy dorothy = new Dorothy();
         PlayerKeyboard keyboard = new PlayerKeyboard(dorothy);
 
         //TODO criar classe for purgatory
-        final PurgatoryView purgatory = new PurgatoryView();
-        purgatory.setPlayer(dorothy);
+        final Purgatory purgatory = new Purgatory();
         final HighnessMeter highnessMeter = new HighnessMeter();
 
         /**
@@ -39,12 +37,19 @@ public class MainView {
 
                     while (true) {
 
-                        if (dorothy.getHighnessLevel() > 75) {
-                        } else {
-                            background.setHighEffect();
+                        if (highnessMeter.getMeter() >= 195) {
+
+                            //CRIAR VELHA
+                        } else if(highnessMeter.getMeter() <= 65 ){
+
+                            //CRIAR NOVA
+                        } else{
+                            //VELHA
                         }
-                        purgatory.init();
-                        //purgatory.animate();
+
+                        background.setHighEffect();
+                        purgatory.draw();
+                        purgatory.animate();
                         //map.draw();
                         dorothy.move();
                         highnessMeter.animate();
