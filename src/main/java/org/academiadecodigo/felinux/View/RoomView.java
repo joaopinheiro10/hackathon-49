@@ -6,6 +6,7 @@ import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 
 import static org.academiadecodigo.felinux.GameObjects.map.MapType.*;
 import static org.academiadecodigo.felinux.Services.GameCycle.activeMap;
+import static org.academiadecodigo.felinux.Services.GameCycle.imageMap;
 
 public class RoomView extends View{
 
@@ -13,22 +14,4 @@ public class RoomView extends View{
         super(new Room());
     }
 
-    /**
-     * Method to create loop inside this room
-     */
-    @Override
-    public void init(HighnessMeter hm) {
-
-        while(player.isAlive() && activeMap == ROOM) {
-
-            if (firstTime) {
-                map.draw();
-                firstTime = false;
-            }
-
-            map.animate();
-            player.move();
-        }
-
-    }
 }

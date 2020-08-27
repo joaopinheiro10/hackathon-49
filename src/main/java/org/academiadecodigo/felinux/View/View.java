@@ -1,13 +1,16 @@
 package org.academiadecodigo.felinux.View;
 
 import org.academiadecodigo.felinux.GameObjects.map.Map;
+import org.academiadecodigo.felinux.GameObjects.map.MapType;
 import org.academiadecodigo.felinux.GameObjects.map.Room;
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
 import org.academiadecodigo.felinux.View.extras.Background;
 import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 
+import static org.academiadecodigo.felinux.GameObjects.map.MapType.ROOM;
 import static org.academiadecodigo.felinux.Services.GameCycle.activeMap;
 import static org.academiadecodigo.felinux.GameObjects.map.MapType.HALL;
+import static org.academiadecodigo.felinux.Services.GameCycle.imageMap;
 
 public abstract class View {
 
@@ -33,16 +36,33 @@ public abstract class View {
     /**
      * Defines what happens inside each view
      */
-    public void init(HighnessMeter hm) {
+    public void init(HighnessMeter hm, MapType mapType) {
 
-        while(player.isAlive() || activeMap == HALL) {
+        while (player.isAlive() && activeMap == mapType) {
+
+            if (HighnessMeter.meter > 75) {
+
+                background.setHighEffect();
+            } else {
+                background.setHighEffect();
+            }
 
             if (firstTime) {
-                map.draw();
+                imageMap.draw();
+                player.getImage().draw();
                 firstTime = false;
             }
+
+
+            hm.animate();
             map.animate();
             player.move();
+
+            try {
+                Thread.sleep(30);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-    };
+    }
 }

@@ -13,23 +13,4 @@ public class AtriumView extends View {
         super(new Atrium());
     }
 
-    @Override
-    public void init(HighnessMeter hm) {
-
-        while(player.isAlive() || activeMap == ATRIUM) {
-
-            if (HighnessMeter.meter > 75) {
-            } else {
-                background.setHighEffect();
-            }
-
-            if (firstTime) {
-                map.draw();
-            }
-            map.animate();
-            player.move();
-        }
-
-        activeMap = PURGATORY;
-    }
 }
