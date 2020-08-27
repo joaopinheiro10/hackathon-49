@@ -1,10 +1,16 @@
 package org.academiadecodigo.felinux.Services;
 
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
+import org.academiadecodigo.felinux.map.MapType;
+import org.academiadecodigo.felinux.View.Menu;
 
 public class GameCycle {
 
+    public static MapType activeMap;
     private Dorothy player;
+    private Menu menu;
+
+
 
     public GameCycle() {
     }
@@ -13,16 +19,9 @@ public class GameCycle {
      * While player is alive, game is looping
      */
     public void start() {
-        while(player.isAlive()){
-            try {
-                Thread.sleep(50);
 
-                player.move();
-
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        menu.start();
             }
 
         }
-    }
 }
