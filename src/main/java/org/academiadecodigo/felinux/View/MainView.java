@@ -2,20 +2,24 @@ package org.academiadecodigo.felinux.View;
 
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
 import org.academiadecodigo.felinux.controller.PlayerKeyboard;
+import org.academiadecodigo.felinux.map.Map;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class MainView {
+
     public MainView(){
         startGame();
     }
+
     public void startGame(){
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         final Background background = new Background();
         final Dorothy dorothy = new Dorothy();
         PlayerKeyboard keyboard = new PlayerKeyboard(dorothy);
+        final Map map = new Map();
 
         //TODO criar classe for purgatory
         final Picture purgatory = new Picture(100, 50, "/img/mansion/purgatory/purgatory.png");
@@ -28,6 +32,7 @@ public class MainView {
             new Runnable() {
                 @Override
                 public void run() {
+
                     while (true) {
 
                         if (dorothy.getHighnessLevel() > 75) {
@@ -35,6 +40,8 @@ public class MainView {
                             background.setHighEffect();
                         }
 
+                        map.draw();
+                        //TODO joel
                         dorothy.move();
 
                         try {

@@ -19,7 +19,7 @@ public class Dorothy extends AbstractModel {
         this.prevDirection = DirectionType.DOWN;
         direction = DirectionType.DOWN;
         alive = true;
-        image = new Picture(50,50, "/sprites/girl/DEAD_LEFT_1.png");
+        image = new Picture(50,50, "img/chars/girl/DEAD_LEFT_1.png");
     }
 
     public int getHighnessLevel() {
