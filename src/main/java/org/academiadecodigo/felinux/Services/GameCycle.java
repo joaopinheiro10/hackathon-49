@@ -42,7 +42,7 @@ public class GameCycle {
      */
     public void start() {
 
-        mapList.get(0).init(highnessMeter, activeMap);
+        mapList.get(0).init(highnessMeter, MapType.ROOM);
 
         mapList.get(1).init(highnessMeter, MapType.HALL);
 
