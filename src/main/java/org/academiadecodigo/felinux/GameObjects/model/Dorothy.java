@@ -118,6 +118,7 @@ public class Dorothy extends AbstractModel {
     }
 
     private String genIdleImage(DirectionType cdirection){
+
         if(HighnessMeter.meter >= 195){
             lastSprite = "/img/chars/girl/IDLE_"+ cdirection +"_1.png";
             return lastSprite;

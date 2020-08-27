@@ -11,7 +11,7 @@ import java.util.Map;
 public class HighnessMeter {
 
     //MIN = 0     MAX = 260
-    //25% = 65 ;  50% = 130   ;   75% = 195
+    //25% = 65   ;  50% = 130   ;   75% = 195
     public static int meter = 260;
 
     private Picture meterBar = new Picture(5, 20 + 465, "/meter/meter.png");

@@ -15,7 +15,6 @@ public abstract class View {
     protected Map map;
     protected boolean firstTime;
     protected Background background;
-    protected HighnessMeter highnessMeter;
 
     public View(Map map) {
         this.map = map;
@@ -34,7 +33,7 @@ public abstract class View {
     /**
      * Defines what happens inside each view
      */
-    public void init() {
+    public void init(HighnessMeter hm) {
 
         while(player.isAlive() || activeMap == HALL) {
 
@@ -46,8 +45,4 @@ public abstract class View {
             player.move();
         }
     };
-
-    public void setHighnessMeter(HighnessMeter highnessMeter) {
-        this.highnessMeter = highnessMeter;
-    }
 }

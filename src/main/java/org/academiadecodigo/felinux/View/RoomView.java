@@ -2,6 +2,8 @@ package org.academiadecodigo.felinux.View;
 
 import org.academiadecodigo.felinux.GameObjects.map.Room;
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
+import org.academiadecodigo.felinux.View.extras.HighnessMeter;
+
 import static org.academiadecodigo.felinux.GameObjects.map.MapType.*;
 import static org.academiadecodigo.felinux.Services.GameCycle.activeMap;
 
@@ -15,7 +17,7 @@ public class RoomView extends View{
      * Method to create loop inside this room
      */
     @Override
-    public void init() {
+    public void init(HighnessMeter hm) {
 
         while(player.isAlive() && activeMap == ROOM) {
 

@@ -1,6 +1,7 @@
 package org.academiadecodigo.felinux.View;
 
 import org.academiadecodigo.felinux.GameObjects.map.Atrium;
+import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 
 public class AtriumView extends View {
 
@@ -10,7 +11,7 @@ public class AtriumView extends View {
     }
 
     @Override
-    public void init() {
+    public void init(HighnessMeter hm) {
 
     }
 }

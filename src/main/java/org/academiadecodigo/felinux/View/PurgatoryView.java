@@ -17,9 +17,9 @@ public class PurgatoryView extends View{
     }
 
     @Override
-    public void init() {
+    public void init(HighnessMeter hm) {
 
-        while(player.isAlive() || activeMap == PURGATORY) {
+        while(player.isAlive() && activeMap == PURGATORY) {
 
             if (HighnessMeter.meter > 75) {
             } else {
@@ -32,6 +32,7 @@ public class PurgatoryView extends View{
             }
 
 
+            hm.animate();
             map.animate();
             player.move();
         }
