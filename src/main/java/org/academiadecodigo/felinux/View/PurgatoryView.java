@@ -38,6 +38,25 @@ public class PurgatoryView extends View{
             map.animate();
             player.move();
 
+            //check interactio with water or fire
+            if(player.interact(player.getImage(), ((Purgatory)map).getFire().getImage())){
+
+                ((Purgatory)map).getWater().getImage().delete();
+                ((Purgatory)map).getFire().getImage().delete();
+
+                player.setDecision(false);
+                break;
+            }
+
+            if(player.interact(player.getImage(), ((Purgatory)map).getWater().getImage())){
+
+                ((Purgatory)map).getWater().getImage().delete();
+                ((Purgatory)map).getFire().getImage().delete();
+
+                player.setDecision(true);
+                break;
+            }
+
             try {
                 Thread.sleep(30);
             } catch (InterruptedException e) {
@@ -47,5 +66,8 @@ public class PurgatoryView extends View{
 
         imageMap.delete();
         player.getImage().delete();
+        hm.getRectangle().delete();
+        hm.getMeterBar().delete();
+        background.getRectangle().delete();
     }
 }

@@ -14,6 +14,7 @@ public class Room extends Map {
     }
     public void animate() {
         roomShroom.spawnShroom();
+        super.animate();
     }
     public void spawnItems(){
         bed.draw();

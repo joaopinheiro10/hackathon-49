@@ -1,8 +1,11 @@
 package org.academiadecodigo.felinux.GameObjects.model;
 
+import org.academiadecodigo.felinux.GameObjects.map.Map;
 import org.academiadecodigo.felinux.View.extras.HighnessMeter;
 import org.academiadecodigo.felinux.tools.DirectionType;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
+
+import java.awt.*;
 
 public class Dorothy extends AbstractModel {
 
@@ -18,6 +21,8 @@ public class Dorothy extends AbstractModel {
     private int xPos = 250;
     private int yPos = 250;
     private boolean decision;
+    private Picture tripImage;
+    private boolean trip;
 
 
     public Dorothy() {
@@ -67,12 +72,34 @@ public class Dorothy extends AbstractModel {
      */
     public void move(){
 
+        if(HighnessMeter.meter <=1|| HighnessMeter.meter >= 259){
+            alive= false;
+            killDorothy();
+            return;
+        }
+
+//        if(trip)
+//
+//            tripImage.delete();
+//            trip = false;
+//        }
+//
+//        if(!trip){
+//
+//            if(Math.random()<=0.1){
+//
+//                tripImage = new Picture(Math.random()*650,Math.random()*650,"img/chars/highNpcs/blueHorse/tile062.png");
+//                tripImage.draw();
+//                System.out.println(tripImage);
+//                trip=true;
+//            }
+//        }
+//
         if(idle){
             super.image.load((HighnessMeter.meter<=65)?"/img/chars/oldLady/OLD_IDLE_"+ direction +".png"
                     :"/img/chars/girl/IDLE_" + direction +".png");
             return;
         }
-        System.out.println(image.getX() + " " + image.getY());
         if(moveCounter >= 3 || prevDirection != super.direction){
             moveCounter = 0;
         } else {
@@ -83,6 +110,16 @@ public class Dorothy extends AbstractModel {
 
         super.image.translate(dx,dy);
         prevDirection = direction;
+    }
+
+    private void killDorothy() {
+
+        image.load("img/chars/girl/DEAD_LEFT_1.png");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -149,6 +186,10 @@ public class Dorothy extends AbstractModel {
 
     public int[][] getPositions() {
         return positions;
+    }
+
+    public boolean isDecision() {
+        return decision;
     }
 }
 

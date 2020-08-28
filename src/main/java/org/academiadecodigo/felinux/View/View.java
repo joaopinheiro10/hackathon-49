@@ -68,6 +68,8 @@ public abstract class View {
         imageMap.delete();
         player.getImage().delete();
     }
-    public void spawnItems(){
+
+    protected boolean checkHealth(){
+        return player.isAlive();
     }
 }
