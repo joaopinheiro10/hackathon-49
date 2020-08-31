@@ -49,6 +49,9 @@ public class RoomView extends View{
                 e.printStackTrace();
             }
 
+            if(player.checkBorder(250,380, 30)){
+                break;
+            }
         }
 
         activeMap = HALL;

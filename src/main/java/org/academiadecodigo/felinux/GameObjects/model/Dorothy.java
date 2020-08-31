@@ -106,6 +106,7 @@ public class Dorothy extends AbstractModel {
             moveCounter++;
         }
 
+        System.out.println(image.getX() + " "+ image.getY());
         super.image.load((HighnessMeter.meter<=65)?direction.getOldImages(moveCounter):direction.getImage(moveCounter));
 
         super.image.translate(dx,dy);
@@ -120,6 +121,14 @@ public class Dorothy extends AbstractModel {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    public boolean checkBorder(int x, int y, int distance) {
+
+        int xA = ((super.image.getX())*2+super.image.getWidth())/2;
+        int yA = ((super.image.getY())*2+super.image.getHeight())/2;
+
+        return getDistance(xA,yA,x,y)<=distance;
     }
 
     /**
