@@ -10,8 +10,12 @@ public abstract class Map {
     private MapType currentMap;
     protected Shroom purgatoryShrooms;
     protected Shroom roomShroom;
+    protected Picture tripImage;
+    private boolean firstTime;
+
     public Map(MapType currentMap) {
         this.currentMap = currentMap;
+        firstTime = true;
     }
 
 
@@ -27,5 +31,22 @@ public abstract class Map {
         GameCycle.imageMap.load(currentMap.getSource());
     }
 
-    public void animate(){};
+    public void animate(){
+
+        /*tripImage = new Picture(Math.random() * 500, Math.random() * 500, "img/chars/highNpcs/blueHorse/tile062.png");
+
+        if(firstTime) {
+            tripImage.draw();
+            firstTime = false;
+        }
+
+        if(Math.random()<=0.1) {
+
+            tripImage = new Picture(Math.random() * 500, Math.random() * 500, "img/chars/highNpcs/blueHorse/tile062.png");
+            tripImage.draw();
+        }
+
+        tripImage.delete();
+*/
+    };
 }

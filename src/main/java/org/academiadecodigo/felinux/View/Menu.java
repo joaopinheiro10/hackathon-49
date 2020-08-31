@@ -45,13 +45,13 @@ public class Menu implements KeyboardHandler {
 
     public void startScreen() {
 
-        menuStart = new Picture(0, 0, "/img/menuStart/menufinal.png");
+        menuStart = new Picture(10, 10, "/img/menuStart/menufinal.png");
         menuStart.draw();
 
     }
 
     public void showInstructions() {
-        instructionsScreen = new Picture(0, 0, "/img/menuStart/instructions.png");
+        instructionsScreen = new Picture(10, 10, "/img/menuStart/instructions.png");
         menuStart.delete();
         instructionsScreen.draw();
         timer();

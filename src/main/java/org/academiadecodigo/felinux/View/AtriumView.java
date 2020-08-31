@@ -17,7 +17,7 @@ public class AtriumView extends View {
     }
 
     public void init(HighnessMeter hm, MapType mapType) {
-        int counter =0;
+
         while (player.isAlive() && activeMap == mapType) {
 
             if (HighnessMeter.meter > 75) {
@@ -45,16 +45,20 @@ public class AtriumView extends View {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
+            if(player.checkBorder(115,380,30)){
+                break;
+            }
         }
 
-        activeMap = PURGATORY;
-        imageMap.delete();
-        imageMap = new Picture(50,50, activeMap.getSource());
         player.getImage().delete();
         player.setxPos(player.getPositions()[3][0]);
         player.setyPos(player.getPositions()[3][1]);
         hm.getRectangle().delete();
         hm.getMeterBar().delete();
+        activeMap = PURGATORY;
+        imageMap.delete();
+        imageMap = new Picture(50,50, activeMap.getSource());
     }
 
 }

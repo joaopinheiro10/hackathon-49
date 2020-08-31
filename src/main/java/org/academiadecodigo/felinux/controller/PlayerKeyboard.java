@@ -18,6 +18,7 @@ public class PlayerKeyboard implements KeyboardHandler {
     private Keyboard keyboard;
     private Dorothy player;
     private float moveSpeed = 4f;
+    private float lateralMove = 2.6f;
 
 
     public PlayerKeyboard(Dorothy player){
@@ -77,6 +78,26 @@ public class PlayerKeyboard implements KeyboardHandler {
         changeMap.setKey(KeyboardEvent.KEY_K);
         changeMap.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
+        KeyboardEvent q = new KeyboardEvent();
+        q.setKey(KeyboardEvent.KEY_Q);
+        q.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        KeyboardEvent e = new KeyboardEvent();
+        e.setKey(KeyboardEvent.KEY_E);
+        e.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        KeyboardEvent c = new KeyboardEvent();
+        c.setKey(KeyboardEvent.KEY_C);
+        c.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        KeyboardEvent z = new KeyboardEvent();
+        z.setKey(KeyboardEvent.KEY_Z);
+        z.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+        keyboard.addEventListener(q);
+        keyboard.addEventListener(e);
+        keyboard.addEventListener(c);
+        keyboard.addEventListener(z);
         keyboard.addEventListener(left);
         keyboard.addEventListener(right);
         keyboard.addEventListener(up);
@@ -124,6 +145,26 @@ public class PlayerKeyboard implements KeyboardHandler {
         stopDown.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
 
 
+        KeyboardEvent qr = new KeyboardEvent();
+        qr.setKey(KeyboardEvent.KEY_Q);
+        qr.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
+
+        KeyboardEvent er = new KeyboardEvent();
+        er.setKey(KeyboardEvent.KEY_E);
+        er.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
+
+        KeyboardEvent cr = new KeyboardEvent();
+        cr.setKey(KeyboardEvent.KEY_C);
+        cr.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
+
+        KeyboardEvent zr = new KeyboardEvent();
+        zr.setKey(KeyboardEvent.KEY_Z);
+        zr.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
+
+        keyboard.addEventListener(qr);
+        keyboard.addEventListener(er);
+        keyboard.addEventListener(cr);
+        keyboard.addEventListener(zr);
         keyboard.addEventListener(stopLeft);
         keyboard.addEventListener(stopRight);
         keyboard.addEventListener(stopUp);
@@ -145,7 +186,6 @@ public class PlayerKeyboard implements KeyboardHandler {
         player.setDy(0);
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_A||keyboardEvent.getKey() == KeyboardEvent.KEY_LEFT){
-
             player.setDx(player.getDx()-moveSpeed);
             player.setDirection(LEFT);
             player.setIdle(false);
@@ -169,12 +209,40 @@ public class PlayerKeyboard implements KeyboardHandler {
             player.setIdle(false);
         }
 
+        if(keyboardEvent.getKey() == KeyboardEvent.KEY_Q){
+
+            player.setDy(player.getDy()-lateralMove);
+            player.setDx(player.getDx()-lateralMove);
+            player.setDirection(LEFT);
+            player.setIdle(false);
+        }
+
+        if(keyboardEvent.getKey() == KeyboardEvent.KEY_C){
+            player.setDy(player.getDy()+lateralMove);
+            player.setDx(player.getDx()+lateralMove);
+            player.setDirection(RIGHT);
+            player.setIdle(false);
+        }
+
+        if(keyboardEvent.getKey() == KeyboardEvent.KEY_E){
+            player.setDy(player.getDy()-lateralMove);
+            player.setDx(player.getDx()+lateralMove);
+            player.setDirection(BACK);
+            player.setIdle(false);
+        }
+
+        if(keyboardEvent.getKey() == KeyboardEvent.KEY_Z){
+            player.setDy(player.getDy()+lateralMove);
+            player.setDx(player.getDx()-lateralMove);
+            player.setDirection(FRONT);
+            player.setIdle(false);
+        }
        // if(keyboardEvent.getKey() == KeyboardEvent.KEY_E){
        //     player.interact();
        // }
 
         if(keyboardEvent.getKey() == KeyboardEvent.KEY_K) {
-            GameCycle.activeMap = MapType.PURGATORY;
+            GameCycle.activeMap = null;
         }
 
 
@@ -204,6 +272,26 @@ public class PlayerKeyboard implements KeyboardHandler {
         }
         if((keyboardEvent.getKey() == KeyboardEvent.KEY_S)||(keyboardEvent.getKey() == KeyboardEvent.KEY_DOWN)){
             player.setDy(0f);
+            player.setIdle(true);
+        }
+        if((keyboardEvent.getKey() == KeyboardEvent.KEY_Q)){
+            player.setDy(0f);
+            player.setDx(0f);
+            player.setIdle(true);
+        }
+        if((keyboardEvent.getKey() == KeyboardEvent.KEY_Z)){
+            player.setDy(0f);
+            player.setDx(0f);
+            player.setIdle(true);
+        }
+        if((keyboardEvent.getKey() == KeyboardEvent.KEY_C)){
+            player.setDy(0f);
+            player.setDx(0f);
+            player.setIdle(true);
+        }
+        if((keyboardEvent.getKey() == KeyboardEvent.KEY_E)){
+            player.setDy(0f);
+            player.setDx(0f);
             player.setIdle(true);
         }
     }

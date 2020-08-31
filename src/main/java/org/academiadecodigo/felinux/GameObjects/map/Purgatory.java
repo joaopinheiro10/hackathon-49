@@ -21,5 +21,14 @@ public class Purgatory extends Map{
         fire.animate();
         water.animate();
         purgatoryShrooms.spawnShroom();
+        super.animate();
+    }
+
+    public Water getWater() {
+        return water;
+    }
+
+    public Fire getFire() {
+        return fire;
     }
 }

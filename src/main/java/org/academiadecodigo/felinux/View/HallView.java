@@ -50,6 +50,11 @@ public class HallView extends View {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
+            if(player.checkBorder(440,400,30)){
+                break;
+            }
+
         }
 
         activeMap = ATRIUM;

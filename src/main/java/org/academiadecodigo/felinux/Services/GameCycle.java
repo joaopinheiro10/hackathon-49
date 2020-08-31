@@ -1,5 +1,6 @@
 package org.academiadecodigo.felinux.Services;
 
+import org.academiadecodigo.felinux.GameObjects.map.Heaven;
 import org.academiadecodigo.felinux.GameObjects.map.MapType;
 import org.academiadecodigo.felinux.GameObjects.model.Dorothy;
 
@@ -66,8 +67,14 @@ public class GameCycle {
         mapList.get(3).init(highnessMeter, activeMap);
 
         //Missing final scene
+        if (player.isDecision()) {
 
-
+            HeavenView heaven = new HeavenView();
+            heaven.init();
+        } else {
+            HellView hell = new HellView();
+            hell.init();
+        }
     }
 
     /**
