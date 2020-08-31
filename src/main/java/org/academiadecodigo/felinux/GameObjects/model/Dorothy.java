@@ -8,7 +8,6 @@ public class Dorothy extends AbstractModel {
 
     private float dx;
     private float dy;
-    private HighnessMeter highnessMeter;
     private boolean alive;
     private int moveCounter;
     private boolean idle;
@@ -104,7 +103,6 @@ public class Dorothy extends AbstractModel {
 
     /**
      * Almighty God, calculator of distance, ruler of the maths
-     * Aka DONT TOUCH
      * @param xA
      * @param yA
      * @param xB
