@@ -17,7 +17,7 @@ public class AtriumView extends View {
     }
 
     public void init(HighnessMeter hm, MapType mapType) {
-        int counter =0;
+
         while (player.isAlive() && activeMap == mapType) {
 
             if (HighnessMeter.meter > 75) {
